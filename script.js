@@ -189,6 +189,47 @@ document.addEventListener('DOMContentLoaded', function () {
 // Fim animação certificados
 
 
+// Arrastar os Cards de Certificados
+cards.forEach((card) => {
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  const onPointerDown = (e) => {
+    isDragging = true;
+    const rect = card.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    card.setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e) => {
+    if (!isDragging) return;
+
+    const areaRect = area.getBoundingClientRect();
+    let x = e.clientX - areaRect.left - offsetX;
+    let y = e.clientY - areaRect.top - offsetY;
+
+    const maxX = area.clientWidth - card.offsetWidth;
+    const maxY = area.clientHeight - card.offsetHeight;
+
+    x = Math.max(0, Math.min(x, maxX));
+    y = Math.max(0, Math.min(y, maxY));
+
+    card.style.left = `${x}px`;
+    card.style.top = `${y}px`;
+  };
+
+  const onPointerUp = () => {
+    isDragging = false;
+  };
+
+  card.addEventListener("pointerdown", onPointerDown);
+  card.addEventListener("pointermove", onPointerMove);
+  card.addEventListener("pointerup", onPointerUp);
+});
+
+
+// Fim de Arrastar os Cards de Certificados
 
   // Reinicia o efeito de digitação do "Hello World !" a cada 8 segundos
 setInterval(() => {
@@ -206,7 +247,7 @@ setInterval(() => {
 
 
 
-  // Botao Menu Mobile
+  // Botão Menu Mobile
   
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('menu');

@@ -175,12 +175,12 @@ html {
     border-right: 2px solid #1e40af;
     animation: typing 3s steps(30) 1 normal both, blink 1s infinite;
       /* Espaço entre o cursor e o HELLO WORLD */
-       max-width: 11ch;
+       max-width: 10ch;
   }
   
   @keyframes typing {
     from { width: 0; }
-    to { width: 15ch; }
+    to { width: 10ch; }
   }
   
   @keyframes blink {
@@ -361,7 +361,7 @@ html {
   
 
 
-
+/* Projetos */
 
 
   .project-container {
@@ -483,6 +483,7 @@ html {
 
 /* Certificados */
 
+
 .certificados-section {
   position: relative;
   padding: 40px 0 80px; /* Reduzido o topo */
@@ -509,7 +510,7 @@ html {
 
 .certificado-card {
   position: absolute;
-  width: 280px;
+  width: 210px;
   padding: 20px;
   background-color: #111;
   color: white;
@@ -524,9 +525,12 @@ html {
   cursor: default;  
 }
 
-
-
-
-
-/* RESPONSIVIDADE */
+/* 📱 Reduz apenas em celulares */
+@media (max-width: 768px) {
+  .certificado-card {
+    width: 160px;
+    padding: 12px;
+    font-size: 0.8rem;
+  }
+}
 
