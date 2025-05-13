@@ -19,6 +19,8 @@
     padding: 2rem;
   }
   
+
+
   /* Começo menu */
   .navbar {
     background-color: #151517;
@@ -29,8 +31,6 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    
-    
 
   }
 
@@ -88,11 +88,66 @@
 html {
   scroll-behavior: smooth;
 }
-
-
   
   /* Final Menu */
- 
+
+
+
+
+
+  /* Menu RESPONSIVO MOBILE */
+  
+   /* Botão Menu invisível no desktop */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobile: até 768px */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #151517;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #000;
+    z-index: 99;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+   /* fINAL MENU RESPONSIVO MOBILE */
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -476,4 +531,6 @@ html {
 
 
 
+
+/* RESPONSIVIDADE */
 
