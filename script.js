@@ -36,13 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
   typeText();
 });
 
-
 // Fim Preloader
 
 
 
 
-// Menu 
+// Menu Scrool Link
 console.log("JavaScript carregado!");
 document.addEventListener('DOMContentLoaded', function () {
   const menuLinks = document.querySelectorAll('.menu a');
@@ -62,17 +61,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
-
-
-
-// Fim menu
+// Fim menu Scrool Link
 
 
 
 
 
 // Enviar mensagem (Contato)
-
 
   document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -89,10 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 // Final Contato
-
-
-
-
 
 
 
@@ -129,18 +120,12 @@ document.addEventListener('DOMContentLoaded', function () {
       animateCircle(circle, percent);
     });
   });
-
-
-
-
-
+//  Fim animação dos Circulos
 
 
 
   
   // Animação dos Certificados
-
-
 
   const area = document.querySelector('.certificados-area');
   const cards = document.querySelectorAll('.certificado-card');
@@ -201,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   animateCards();
 
+// Fim animação certificados
 
 
 
@@ -217,7 +203,10 @@ setInterval(() => {
 }, 8000);
 
 
-  // Botao Menu
+
+
+
+  // Botao Menu Mobile
   
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('menu');
