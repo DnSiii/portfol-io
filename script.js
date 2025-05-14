@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Menu Scrool Link
-console.log("JavaScript carregado!");
 document.addEventListener('DOMContentLoaded', function () {
   const menuLinks = document.querySelectorAll('.menu a');
 
@@ -67,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// Enviar mensagem (Contato)
+//Enviar mensagem (Contato)
 
   document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
