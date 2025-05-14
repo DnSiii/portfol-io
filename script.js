@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// Menu Scrool Link
+// Menu Scrool  Link
 console.log("JavaScript carregado!");
 document.addEventListener('DOMContentLoaded', function () {
   const menuLinks = document.querySelectorAll('.menu a');
