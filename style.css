@@ -525,11 +525,11 @@ html {
   cursor: default;  
 }
 
-/* 📱 Reduz apenas em celulares */
+/* Tamanho de Cards para Mobile */
 @media (max-width: 768px) {
   .certificado-card {
-    width: 160px;
-    padding: 12px;
+    width: 110px;
+    padding: 8px;
     font-size: 0.8rem;
   }
 }

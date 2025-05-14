@@ -231,7 +231,7 @@ cards.forEach((card) => {
 
 // Fim de Arrastar os Cards de Certificados
 
-  // Reinicia o efeito de digitação do "Hello World !" a cada 8 segundos
+  //  Reinicia o efeito de digitação do "Hello World !" a cada 8 segundos
 setInterval(() => {
   const typeElement = document.querySelector('.typewriter');
 
