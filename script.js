@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const message = document.getElementById("successMessage");
     message.classList.remove("hidden");
 
-    this.submit(); // envia o formulário via iframe invisível
+    this.submit(); //Envia o formulário via iframe invisível
     this.reset();
 
     setTimeout(() => {

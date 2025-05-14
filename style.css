@@ -504,7 +504,7 @@ html {
 .certificados-area {
   position: relative;
   width: 100%;
-  height: 300px; /* ou maior se quiser mais espaço de movimento */
+  height: 300px; /* Ou maior se quiser mais espaço de movimento */
   overflow: hidden;
 }
 
