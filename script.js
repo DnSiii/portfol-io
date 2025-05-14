@@ -29,14 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
             preloader.style.display = "none";
           }, 1000);
         }
-      }, 400); // Piscar mais devagar
+      }, 400); //Piscar mais devagar
     }
   }
 
   typeText();
 });
 
-// Fim Preloader
+//Fim Preloader
 
 
 
