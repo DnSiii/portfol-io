@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#68714f">
+<title>Jean & Carolina | 05.12.2026</title>
+<meta name="description" content="Site de casamento de Jean e Carolina — 05 de dezembro de 2026.">
+<style>
+:root{
+  --olive:#68714f;--olive-dark:#4f583d;--olive-light:#e8ebdf;
+  --lav:#8f7aa7;--lav-light:#eee9f3;--cream:#fbfaf6;--paper:#fffefb;
+  --ink:#34372f;--muted:#74776d;--line:#e7e4da;--shadow:0 18px 50px rgba(66,70,48,.12)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+.sans{font-family:Arial,Helvetica,sans-serif}
+nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(251,250,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(104,113,79,.12)}
+.nav-inner{max-width:1180px;margin:auto;height:70px;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:24px;color:var(--olive-dark)}
+.menu{display:flex;gap:20px;align-items:center;font-family:Arial,Helvetica,sans-serif;font-size:14px}
+.menu a{padding:8px 0}
+.menu-toggle{display:none;border:0;background:none;font-size:27px;color:var(--olive-dark)}
+.hero{min-height:100vh;padding:110px 24px 60px;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;background:
+radial-gradient(circle at 15% 18%,rgba(143,122,167,.09),transparent 28%),
+radial-gradient(circle at 84% 72%,rgba(104,113,79,.10),transparent 32%),
+linear-gradient(180deg,#fffefb 0%,#f7f5ee 100%)}
+.hero:before,.hero:after{content:"";position:absolute;width:260px;height:500px;opacity:.32;pointer-events:none;background-repeat:no-repeat;background-size:contain}
+.hero:before{left:-80px;top:130px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='500' viewBox='0 0 260 500'%3E%3Cg fill='none' stroke='%2368714f' stroke-width='3'%3E%3Cpath d='M150 470 C130 380 145 300 110 220 C95 185 80 150 78 70'/%3E%3Cpath d='M110 220 C55 205 50 160 32 140'/%3E%3Cpath d='M126 295 C184 275 194 225 210 205'/%3E%3C/g%3E%3Cg fill='%238f7aa7'%3E%3Cellipse cx='74' cy='62' rx='11' ry='20'/%3E%3Cellipse cx='68' cy='92' rx='10' ry='18'/%3E%3Cellipse cx='82' cy='118' rx='10' ry='18'/%3E%3Cellipse cx='28' cy='136' rx='10' ry='18'/%3E%3Cellipse cx='43' cy='164' rx='10' ry='18'/%3E%3Cellipse cx='210' cy='199' rx='10' ry='18'/%3E%3Cellipse cx='196' cy='229' rx='10' ry='18'/%3E%3C/g%3E%3C/svg%3E")}
+.hero:after{right:-90px;bottom:-20px;transform:scaleX(-1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='500' viewBox='0 0 260 500'%3E%3Cg fill='none' stroke='%2368714f' stroke-width='3'%3E%3Cpath d='M150 470 C130 380 145 300 110 220 C95 185 80 150 78 70'/%3E%3Cpath d='M110 220 C55 205 50 160 32 140'/%3E%3Cpath d='M126 295 C184 275 194 225 210 205'/%3E%3C/g%3E%3Cg fill='%238f7aa7'%3E%3Cellipse cx='74' cy='62' rx='11' ry='20'/%3E%3Cellipse cx='68' cy='92' rx='10' ry='18'/%3E%3Cellipse cx='82' cy='118' rx='10' ry='18'/%3E%3Cellipse cx='28' cy='136' rx='10' ry='18'/%3E%3Cellipse cx='43' cy='164' rx='10' ry='18'/%3E%3Cellipse cx='210' cy='199' rx='10' ry='18'/%3E%3Cellipse cx='196' cy='229' rx='10' ry='18'/%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{max-width:880px;position:relative;z-index:2}
+.eyebrow{font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.28em;color:var(--olive);font-size:12px;margin-bottom:18px}
+h1{font-weight:400;font-size:clamp(58px,10vw,116px);line-height:.9;margin:0;color:var(--olive-dark)}
+.amp{display:block;font-size:.55em;font-style:italic;color:var(--lav);margin:8px 0}
+.date{font-family:Arial,Helvetica,sans-serif;letter-spacing:.34em;color:var(--olive);font-size:16px;margin-top:28px}
+.hero-photo{width:min(760px,88vw);aspect-ratio:16/8;margin:34px auto 22px;border-radius:180px 180px 26px 26px;border:1px solid rgba(104,113,79,.22);background:linear-gradient(135deg,rgba(104,113,79,.10),rgba(143,122,167,.08));display:grid;place-items:center;box-shadow:var(--shadow);font-family:Arial,Helvetica,sans-serif;color:var(--muted)}
+.hero-photo strong{display:block;color:var(--olive-dark)}
+.hero-photo small{display:block;margin-top:7px}
+.countdown{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.timebox{min-width:102px;padding:15px 10px;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 28px rgba(50,55,35,.06)}
+.timebox strong{display:block;font-size:28px;font-weight:400;color:var(--olive-dark)}
+.timebox span{font-family:Arial,Helvetica,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted)}
+section{padding:92px 24px;position:relative}
+.container{max-width:1080px;margin:auto}
+.section-head{text-align:center;max-width:760px;margin:0 auto 42px}
+.section-head h2{font-size:clamp(36px,5vw,56px);font-weight:400;color:var(--olive-dark);margin:8px 0 14px}
+.section-head p{font-family:Arial,Helvetica,sans-serif;line-height:1.75;color:var(--muted);margin:0}
+.divider{width:110px;height:30px;margin:20px auto;position:relative}
+.divider:before{content:"";position:absolute;left:8px;right:8px;top:14px;height:1px;background:var(--line)}
+.divider:after{content:"✦";position:absolute;left:50%;top:2px;transform:translateX(-50%);background:var(--paper);padding:0 10px;color:var(--lav);font-size:18px}
+.paper{background:var(--paper)}
+.welcome{max-width:790px;margin:auto;text-align:center;font-size:20px;line-height:1.9}
+.welcome p{margin:0 0 18px}
+.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:34px}
+.card h3{font-size:34px;font-weight:400;color:var(--olive-dark);margin:0 0 16px}
+.card p{font-family:Arial,Helvetica,sans-serif;line-height:1.7;color:var(--muted)}
+.detail{display:flex;gap:14px;align-items:flex-start;margin:20px 0;font-family:Arial,Helvetica,sans-serif}
+.icon{width:42px;height:42px;border-radius:50%;background:var(--olive-light);display:grid;place-items:center;flex:0 0 auto}
+.detail strong{display:block;margin-bottom:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 22px;background:var(--olive);color:#fff;font-family:Arial,Helvetica,sans-serif;font-weight:700;cursor:pointer;box-shadow:0 10px 24px rgba(104,113,79,.2)}
+.btn:hover{background:var(--olive-dark)}
+.map{min-height:100%;display:grid;place-items:center;text-align:center;background:linear-gradient(135deg,var(--olive-light),var(--lav-light))}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.badge{display:inline-block;padding:8px 12px;border-radius:999px;background:var(--olive-light);font-family:Arial,Helvetica,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--olive-dark);margin-bottom:12px}
+.rsvp-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.rsvp-intro{background:var(--olive);color:#fff;position:relative;overflow:hidden}
+.rsvp-intro h3{color:#fff;font-size:42px}
+.rsvp-intro p{color:rgba(255,255,255,.9)}
+label{display:block;font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:13px;margin:16px 0 8px}
+input,textarea,select{width:100%;padding:14px 15px;border:1px solid #d9d6cb;background:#fff;border-radius:14px;outline:none;font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+input:focus,textarea:focus,select:focus{border-color:var(--olive);box-shadow:0 0 0 3px rgba(104,113,79,.10)}
+.note{margin-top:14px;padding:12px 14px;border-radius:12px;background:#f4f2eb;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);line-height:1.55}
+.gifts{background:#f4f2eb}
+.gift-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.gift{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 28px rgba(60,65,45,.07);transition:.2s}
+.gift:hover{transform:translateY(-4px)}
+.gift-img{aspect-ratio:4/3;display:grid;place-items:center;font-size:54px;background:linear-gradient(135deg,var(--olive-light),var(--lav-light))}
+.gift-body{padding:20px}
+.gift h3{font-size:22px;margin:0 0 8px;color:var(--olive-dark);font-weight:400}
+.gift p{font-family:Arial,Helvetica,sans-serif;color:var(--muted);font-size:14px;line-height:1.5;min-height:42px}
+.gift-footer{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:15px}
+.price{font-family:Arial,Helvetica,sans-serif;font-weight:800;color:var(--olive-dark)}
+.small-btn{border:0;border-radius:999px;padding:10px 14px;background:var(--olive);color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;cursor:pointer}
+.cart{position:fixed;right:20px;bottom:20px;z-index:40;width:58px;height:58px;border:0;border-radius:50%;background:var(--olive-dark);color:#fff;font-size:22px;cursor:pointer;box-shadow:0 15px 30px rgba(0,0,0,.2)}
+.count{position:absolute;right:-4px;top:-4px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--lav);font-size:11px;font-family:Arial,Helvetica,sans-serif}
+.modal{position:fixed;inset:0;z-index:100;background:rgba(25,27,20,.45);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-card{width:min(620px,96vw);max-height:88vh;overflow:auto;background:var(--paper);border-radius:28px;padding:28px;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.modal-head h3{font-size:34px;font-weight:400;color:var(--olive-dark);margin:0}
+.close{border:0;background:none;font-size:28px;cursor:pointer;color:var(--muted)}
+.cart-item{display:flex;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid var(--line);font-family:Arial,Helvetica,sans-serif}
+.total{display:flex;justify-content:space-between;font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:18px;padding:18px 0}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.photo{aspect-ratio:4/3;border-radius:28px;border:1px solid var(--line);background:linear-gradient(135deg,var(--olive-light),var(--lav-light));display:grid;place-items:center;text-align:center;font-family:Arial,Helvetica,sans-serif;color:var(--muted)}
+footer{padding:68px 24px;text-align:center;background:var(--olive-dark);color:#fff}
+footer h2{font-size:46px;font-weight:400;margin:0 0 10px}
+footer p{font-family:Arial,Helvetica,sans-serif;opacity:.78}
+.toast{position:fixed;left:50%;bottom:92px;z-index:150;transform:translateX(-50%) translateY(20px);opacity:0;background:#303628;color:#fff;padding:13px 18px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-size:13px;transition:.25s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:900px){
+.menu{display:none;position:absolute;top:75px;left:16px;right:16px;flex-direction:column;align-items:stretch;background:var(--paper);padding:18px;border-radius:18px;box-shadow:var(--shadow)}
+.menu.open{display:flex}.menu-toggle{display:block}.grid2,.info-grid,.rsvp-grid{grid-template-columns:1fr}.gift-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+.nav-inner{height:64px}.hero{padding-top:90px}.hero-photo{aspect-ratio:4/3;border-radius:100px 100px 20px 20px}.timebox{min-width:80px;padding:12px 8px}.timebox strong{font-size:23px}section{padding:72px 18px}.card{padding:24px}.gift-grid,.gallery{grid-template-columns:1fr}.gift p{min-height:0}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#inicio">J & C</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+    <div class="menu" id="menu">
+      <a href="#boas-vindas">Boas-vindas</a>
+      <a href="#cerimonia">Cerimônia</a>
+      <a href="#informacoes">Informações</a>
+      <a href="#presenca">Confirme sua presença</a>
+      <a href="#presentes">Lista de casamento</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="eyebrow">Nosso casamento</div>
+    <h1>Jean <span class="amp">&</span> Carolina</h1>
+    <div class="date">05 · 12 · 2026</div>
+    <div class="hero-photo">
+      <div><strong>Foto principal do casal</strong><small>As fotos serão adicionadas na próxima versão.</small></div>
+    </div>
+    <div class="countdown">
+      <div class="timebox"><strong id="days">--</strong><span>Dias</span></div>
+      <div class="timebox"><strong id="hours">--</strong><span>Horas</span></div>
+      <div class="timebox"><strong id="minutes">--</strong><span>Minutos</span></div>
+      <div class="timebox"><strong id="seconds">--</strong><span>Segundos</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="paper" id="boas-vindas">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Com carinho</div>
+      <h2>Boas-vindas ao nosso site! ♥️</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="welcome">
+      <p>Criamos este site para compartilhar com vocês os detalhes da organização do nosso casamento. Estamos muito felizes e contamos com a presença de todos no nosso grande dia!</p>
+      <p>Aqui vocês encontrarão também dicas para trajes e estacionamento. Ah, é importante também confirmar sua presença. Para isso, contamos com sua ajuda clicando no menu <strong>“Confirme sua Presença”</strong> e preenchendo os dados necessários.</p>
+      <p>Caso queiram nos presentear, fiquem à vontade para escolher qualquer item da nossa <strong>Lista de Casamento</strong>.</p>
+      <p><strong>Fiquem à vontade! Aguardamos vocês ansiosamente no nosso grande dia! ♥️</strong></p>
+    </div>
+  </div>
+</section>
+
+<section id="cerimonia">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">05 de dezembro de 2026</div>
+      <h2>Cerimônia ♥️🍃</h2>
+      <p>Um momento muito especial para nós e para todos que fazem parte da nossa história.</p>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Esperamos vocês!</h3>
+        <p>Gostaríamos muito de contar com a presença de todos vocês no momento em que nossa união será abençoada perante Jeová Deus!</p>
+        <p>Tentaremos ser extremamente pontuais. Contamos com vocês!</p>
+        <div class="detail"><div class="icon">📅</div><div><strong>Data</strong>05 de dezembro de 2026</div></div>
+        <div class="detail"><div class="icon">🕥</div><div><strong>Horário</strong>10h40</div></div>
+        <div class="detail"><div class="icon">📍</div><div><strong>Local</strong>Estr. Mun. Santo Antonio, 270<br>Jardim Sandra II, Mairiporã - SP<br>CEP 07631-315</div></div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Estr.+Mun.+Santo+Antonio,+270,+Jardim+Sandra+II,+Mairipor%C3%A3,+SP,+07631-315">📍 Como chegar</a>
+      </div>
+      <div class="card map">
+        <div><div style="font-size:48px">📍</div><h3>Mairiporã, SP</h3><p>Na versão final podemos colocar aqui uma foto do local ou um mapa incorporado.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="paper" id="informacoes">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Para o grande dia</div>
+      <h2>Informações aos convidados</h2>
+      <p>Espaços reservados para as orientações de traje e estacionamento.</p>
+    </div>
+    <div class="info-grid">
+      <div class="card"><span class="badge">Trajes</span><h3>O que vestir?</h3><p>As orientações de traje serão colocadas aqui assim que os noivos definirem os detalhes.</p></div>
+      <div class="card"><span class="badge">Estacionamento</span><h3>Onde estacionar?</h3><p>As informações de estacionamento serão colocadas aqui com instruções simples para os convidados.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="presenca">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">RSVP</div>
+      <h2>Confirme sua presença</h2>
+      <p>Esta é a prévia visual do formulário. Na versão final, a confirmação será registrada com segurança.</p>
+    </div>
+    <div class="rsvp-grid">
+      <div class="card rsvp-intro">
+        <h3>Vai ser ainda mais especial com você.</h3>
+        <p>Para nos ajudar com a organização, confirme sua presença quando o formulário definitivo estiver liberado.</p>
+      </div>
+      <div class="card">
+        <form id="rsvpForm">
+          <label for="guestName">Seu nome completo</label>
+          <input id="guestName" placeholder="Digite seu nome completo">
+          <label for="attendance">Você comparecerá?</label>
+          <select id="attendance">
+            <option value="">Selecione</option>
+            <option>Sim, estarei presente ♥️</option>
+            <option>Infelizmente não poderei comparecer</option>
+          </select>
+          <label for="message">Mensagem aos noivos (opcional)</label>
+          <textarea id="message" rows="4" placeholder="Deixe uma mensagem carinhosa..."></textarea>
+          <button class="btn" type="submit" style="width:100%;margin-top:18px">Confirmar resposta</button>
+          <div class="note">Prévia pública: a lista real de convidados não fica exposta no código do site. O registro online será conectado depois.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gifts" id="presentes">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Com carinho</div>
+      <h2>Lista de Casamento</h2>
+      <p>Uma amostra da experiência da lista de presentes. Produtos, fotos e valores podem ser alterados depois.</p>
+    </div>
+    <div class="gift-grid" id="giftGrid"></div>
+  </div>
+</section>
+
+<section class="paper">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Nossa história</div>
+      <h2>Jean & Carolina</h2>
+      <p>Esta área receberá a história do casal e as fotos, mantendo o visual leve, elegante e discreto.</p>
+    </div>
+    <div class="gallery">
+      <div class="photo"><div><strong>Foto do casal 01</strong><br><small>aguardando imagem</small></div></div>
+      <div class="photo"><div><strong>Foto do casal 02</strong><br><small>aguardando imagem</small></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h2>Jean & Carolina</h2>
+  <p>05 · 12 · 2026 — 10h40</p>
+  <p>Feito com carinho para o nosso grande dia. ♥️</p>
+</footer>
+
+<button class="cart" id="cartBtn" aria-label="Abrir carrinho">🎁<span class="count" id="cartCount">0</span></button>
+
+<div class="modal" id="cartModal">
+  <div class="modal-card">
+    <div class="modal-head"><h3>Seu presente</h3><button class="close" id="closeCart">×</button></div>
+    <div id="cartItems"></div>
+    <div class="total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
+    <label for="buyerName">Seu nome</label><input id="buyerName" placeholder="Quem está presenteando?">
+    <label for="giftMessage">Mensagem para os noivos</label><textarea id="giftMessage" rows="4" placeholder="Escreva uma mensagem carinhosa..."></textarea>
+    <div class="note">Checkout demonstrativo. A integração de pagamento será ativada apenas na versão final.</div>
+    <button class="btn" id="checkoutBtn" style="width:100%;margin-top:16px">Continuar para pagamento</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const gifts=[
+{id:1,name:"Jogo de Panelas",price:389.90,icon:"🍳",desc:"Para os primeiros almoços da casa nova."},
+{id:2,name:"Cafeteira",price:279.90,icon:"☕",desc:"Para começar os dias juntos com café fresquinho."},
+{id:3,name:"Jogo de Taças",price:189.90,icon:"🥂",desc:"Para brindar muitas conquistas."},
+{id:4,name:"Air Fryer",price:449.90,icon:"🍟",desc:"Praticidade para a rotina dos recém-casados."},
+{id:5,name:"Jogo de Cama",price:249.90,icon:"🛏️",desc:"Conforto para o novo lar."},
+{id:6,name:"Aparelho de Jantar",price:329.90,icon:"🍽️",desc:"Para receber a família com carinho."},
+{id:7,name:"Passeio na Lua de Mel",price:499.90,icon:"🌿",desc:"Um momento especial para guardar na memória."},
+{id:8,name:"Jantar dos Recém-casados",price:199.90,icon:"🕯️",desc:"Um jantar romântico para celebrar a nova fase."}
+];
+let cart=[];
+const fmt=v=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(v);
+function countdown(){
+ const d=new Date("2026-12-05T10:40:00-03:00").getTime()-Date.now();
+ const v=d<=0?[0,0,0,0]:[Math.floor(d/86400000),Math.floor((d%86400000)/3600000),Math.floor((d%3600000)/60000),Math.floor((d%60000)/1000)];
+ ["days","hours","minutes","seconds"].forEach((x,i)=>document.getElementById(x).textContent=String(v[i]).padStart(2,"0"));
+}
+countdown();setInterval(countdown,1000);
+const menu=document.getElementById("menu");
+document.getElementById("menuToggle").onclick=()=>menu.classList.toggle("open");
+menu.querySelectorAll("a").forEach(a=>a.onclick=()=>menu.classList.remove("open"));
+document.getElementById("rsvpForm").onsubmit=e=>{e.preventDefault();showToast("Formulário em modo de prévia. A confirmação online será ativada depois.")};
+const grid=document.getElementById("giftGrid");
+grid.innerHTML=gifts.map(g=>`<article class="gift"><div class="gift-img">${g.icon}</div><div class="gift-body"><h3>${g.name}</h3><p>${g.desc}</p><div class="gift-footer"><span class="price">${fmt(g.price)}</span><button class="small-btn" data-id="${g.id}">Presentear</button></div></div></article>`).join("");
+grid.onclick=e=>{const b=e.target.closest("[data-id]");if(!b)return;const g=gifts.find(x=>x.id===Number(b.dataset.id));cart.push(g);updateCart();showToast(g.name+" adicionado ao carrinho.")};
+function updateCart(){
+ document.getElementById("cartCount").textContent=cart.length;
+ document.getElementById("cartItems").innerHTML=cart.length?cart.map((g,i)=>`<div class="cart-item"><div><strong>${g.name}</strong></div><div>${fmt(g.price)}<br><button onclick="removeItem(${i})" style="border:0;background:none;color:#98615c;cursor:pointer;font-size:12px">remover</button></div></div>`).join(""):'<p class="sans" style="color:var(--muted)">Seu carrinho está vazio.</p>';
+ document.getElementById("cartTotal").textContent=fmt(cart.reduce((s,g)=>s+g.price,0));
+}
+window.removeItem=i=>{cart.splice(i,1);updateCart()};
+const modal=document.getElementById("cartModal");
+document.getElementById("cartBtn").onclick=()=>{updateCart();modal.classList.add("open")};
+document.getElementById("closeCart").onclick=()=>modal.classList.remove("open");
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove("open")};
+document.getElementById("checkoutBtn").onclick=()=>{if(!cart.length)return showToast("Escolha pelo menos um presente.");showToast("Checkout em modo de prévia. O Pix será conectado na versão final.")};
+function showToast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove("show"),2600)}
+updateCart();
+</script>
+</body>
+</html>
