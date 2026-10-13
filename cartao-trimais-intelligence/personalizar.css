@@ -1,0 +1,36 @@
+/* COMECE POR ESTE ARQUIVO para ajustar a aparência.
+   Este arquivo é carregado por último: suas mudanças prevalecem sobre o tema.
+   As cores usam o formato #RRGGBB. Salve e atualize o navegador. */
+:root {
+  --cor-botao: #087daf;      /* Azul dos botões principais. */
+  --cor-periodo: #176b98;    /* Azul do período selecionado. */
+  --cor-destaque: #a2cd35;   /* Verde da linha de destaque. */
+}
+.button.primary { background: var(--cor-botao); }
+.periods button.selected {
+  background: var(--cor-periodo);
+  box-shadow: inset 0 -2px var(--cor-destaque);
+}
+/* Exemplo: retire o comentário abaixo para aumentar os títulos principais.
+h1 { font-size: 36px; }
+*/
+/* Reuniões e investigações entre áreas. */
+.deep-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}.deep-facts small,.deep-facts strong{display:block}.deep-facts small{color:#aebdca;font-size:12px;margin-bottom:6px}.deep-facts strong{font-size:18px}.meeting-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin:20px 0}.meeting-toolbar span{color:#aebdca;font-size:13px}.meeting-index{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}.meeting-index button{background:#172b3a;border:1px solid #365264;color:#d7e5ed;border-radius:8px;padding:8px 12px;cursor:pointer;text-align:left}.meeting-index button:hover,.meeting-index button:focus-visible{border-color:#21a6f4;color:white}.meeting-section{margin:28px 0;padding:28px;scroll-margin-top:20px}.meeting-section .section-head{margin-top:0}.meeting-section .evidence-grid{margin-bottom:20px}.meeting-section h2{font-size:24px}.meeting-section .panel{margin-top:20px}.meeting-section .metric-grid{margin-bottom:20px}@media(max-width:700px){.deep-facts{grid-template-columns:1fr}.meeting-section{padding:18px}.meeting-index{max-height:200px;overflow:auto}}@media print{body{background:white;color:black}.sidebar,.topbar,.controls,.custom-controls,.meeting-toolbar,.meeting-index,.signal-banner,.toast,button{display:none!important}.workspace,.main,.content{margin:0!important;padding:0!important;max-width:none!important}.meeting-section{break-inside:avoid;box-shadow:none;border:1px solid #ccc;margin:15px 0}.panel,.evidence-card,.metric-card,.method-box{background:white!important;color:black!important}.panel p,.panel-sub,.method-label,.mini-label,.value,.label,.comparison{color:black!important}dialog{display:none!important}}
+
+@media print{main{padding:0!important;max-width:none!important}.ref,.deep-facts small,.deep-facts strong,h1,h2,h3,h4,strong,small,th,td{color:black!important}.meeting-section .section-head{break-after:avoid}.meeting-section .evidence-grid{display:block}.meeting-section .evidence-card{break-inside:avoid;margin-bottom:12px}#toast{display:none!important}}
+
+/* Reuniões: imagens originais, sem cortar texto ou marca. */
+.meeting-banner{overflow:hidden;border:1px solid #51616a;border-radius:14px;background:#262b2e;margin:0 0 24px}
+.meeting-banner img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain}
+.meeting-card .meeting-banner{margin:-10px -10px 20px;border-radius:10px}
+.meeting-card .meeting-banner img{max-height:none}
+.controls label{display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:14px}
+.custom-controls select{max-width:100%;min-width:220px;background:#27353f;color:#edf6ff;padding:10px;border:1px solid #607886;border-radius:7px}
+/* Área do BI usa toda a largura disponível e pode entrar em tela inteira. */
+main.bi-main{max-width:none;width:100%;padding:22px 16px 20px}
+.bi-main .embed-wrap iframe{display:block;height:calc(100vh - 90px);min-height:800px;width:100%;border:0}
+.embed-head{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.embed-wrap:fullscreen{width:100vw;height:100vh;border:0;border-radius:0}
+.embed-wrap:fullscreen iframe{height:calc(100vh - 80px);min-height:0}
+@media(max-width:850px){main.bi-main{padding:18px 8px}.bi-main .embed-wrap iframe{min-height:620px;height:85vh}.meeting-banner img{max-height:none}.custom-controls select{min-width:0;width:100%}}
+@media print{.meeting-banner{break-inside:avoid}.meeting-banner img{max-height:240px}.meeting-card{break-inside:avoid}}

@@ -1,0 +1,283 @@
+{
+  "descricao": "Roteiros lidos em Home (RE) e Home (RS); Dennis autorizou seguir a ordem numérica em 05/10/2026. OFF e FINAL não geram análises numéricas.",
+  "modulos": {
+    "estrategica": {
+      "nome": "Reunião Estratégica",
+      "slides_ativos": [
+        {
+          "titulo": "1- Início",
+          "tipo": "inicio",
+          "periodo": null,
+          "nota": "Resumo da operação e principais pontos para a reunião."
+        },
+        {
+          "titulo": "2- Vendas R$ MIL",
+          "tipo": "vendas",
+          "periodo": null,
+          "nota": "Venda Cartão (V/Q) e Ticket Médio C. Valores em reais, com total em mil identificado."
+        },
+        {
+          "titulo": "2.2- Particip. % Vendas (Total)",
+          "tipo": "participacao",
+          "periodo": null,
+          "nota": "Participação do cartão no valor vendido pelo varejo, nas mesmas lojas e datas."
+        },
+        {
+          "titulo": "3- Novos Cartões",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta validar a medida de Novos Cartões; Aprovadas não será usada como substituto."
+        },
+        {
+          "titulo": "4- Produtividade de Propostas",
+          "tipo": "propostas_parcial",
+          "periodo": null,
+          "nota": "Digitadas, Aprovadas e Pendentes disponíveis. Produtividade por consultor, escala e metas ainda precisam de validação."
+        },
+        {
+          "titulo": "4.1- Produtividade de Propostas (%)",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta validar a medida de Produtividade de Propostas (%). Não substituímos por % Aprovadas."
+        },
+        {
+          "titulo": "4.2- Análise Propostas Negadas",
+          "tipo": "negadas",
+          "periodo": null,
+          "nota": "Quantidade de Recusadas disponível. Motivos e regras de recusa ainda precisam ser ligados à proposta correta."
+        },
+        {
+          "titulo": "5- Ativos Mês a Mês (Posterior)",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "As taxas de Ativos Mês a Mês (Posterior) precisam do vínculo entre compras dos meses. Contas Ativas não substitui essa taxa."
+        },
+        {
+          "titulo": "5.1- Ativos Mês a Mês (Anterior)",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta reproduzir a regra de Ativos Mês a Mês (Anterior), com o mesmo vínculo entre meses usado no BI."
+        },
+        {
+          "titulo": "6- Aprovação x Ativação",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta ligar a aprovação à compra da mesma conta. Aprovadas não comprova ativação."
+        },
+        {
+          "titulo": "6.1- Ativação após Cobrança",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta vincular acordo, pagamento e compra posterior da mesma conta para medir Ativação após Cobrança."
+        },
+        {
+          "titulo": "7- Produtos Com Desconto",
+          "tipo": "fidelidade",
+          "periodo": null,
+          "nota": "Períodos completos de Data Inicial/Data Final no All Vendas com Desconto. As campanhas não seguem necessariamente o mês calendário."
+        },
+        {
+          "titulo": "8- Evolução da Base",
+          "tipo": "base_parcial",
+          "periodo": null,
+          "nota": "Contas Ativas e Contas Aptas disponíveis como análises complementares. Não representam a Base Total nem as taxas de ativação do BI."
+        },
+        {
+          "titulo": "9- Compras, Gasto e Ticket",
+          "tipo": "compras",
+          "periodo": null,
+          "nota": "Compras, gasto e ticket na base mensal de Contas Ativas. Ticket desta base não é o Ticket Médio C da Movimentação Diária."
+        },
+        {
+          "titulo": "10- Status (Cobrança)",
+          "tipo": "status_cobranca",
+          "periodo": null,
+          "nota": "Principal Devedor por situação de acordo na posição disponível."
+        },
+        {
+          "titulo": "11- Análise dos Limites",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta validar o universo e as medidas de limites, consumo e limite disponível. Não inferimos esses conceitos pela coluna da fonte."
+        },
+        {
+          "titulo": "12- Faturamento e Recebimento",
+          "tipo": "faturamento_parcial",
+          "periodo": null,
+          "nota": "Subtotal Em Dia disponível. Faturamento Total, com Aviso A/B alinhados, ainda não foi reproduzido."
+        },
+        {
+          "titulo": "12.1- Recebimento de Fatura (%)",
+          "tipo": "recebimento_parcial",
+          "periodo": null,
+          "nota": "% Pagamento Em Dia disponível. Não é o percentual total de recebimento de fatura do BI."
+        },
+        {
+          "titulo": "13- FPD 1 & 2 %Quantidade",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta validar FPD1 e FPD2 por Quantidade. %FPD1 / Ativas é outra medida e não será usada como substituto."
+        },
+        {
+          "titulo": "14- Evol. Gastos e Faturas (6 Meses)",
+          "tipo": "seis_meses",
+          "periodo": null,
+          "nota": "Séries mensais de compras da base de Contas Ativas e faturas Em Dia, com bases distintas explicitadas."
+        },
+        {
+          "titulo": "15- Entrada em Cobrança (MM6)",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta reproduzir a medida MM6 do slide de Entrada em Cobrança e o denominador usado no BI."
+        },
+        {
+          "titulo": "16- Carteira por Faixas de Atraso",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "O agregado PC atual está por situação de acordo. Falta a distribuição validada por faixas de atraso; situação não substitui aging."
+        },
+        {
+          "titulo": "17- Inadimplência (30D & 180D)",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta validar os universos, datas e denominadores de Inadimplência 30D e 180D."
+        },
+        {
+          "titulo": "18- Entrada e Recup Cobrança",
+          "tipo": "fluxos",
+          "periodo": null,
+          "nota": "Pagamentos e Entrada em Cobrança do período, com disponibilidade de dados conferida separadamente."
+        },
+        {
+          "titulo": "19- Previsão e Perda Realizada",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta a regra de Previsão e Perda Realizada; não geramos previsão sem esse cálculo."
+        },
+        {
+          "titulo": "19.1- VALOR PERDA X FPD",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta ligar Valor em Perda ao FPD da mesma população e validar o período."
+        },
+        {
+          "titulo": "19.2- QUANT PERDA X FPD",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta ligar Quantidade em Perda ao FPD e definir a contagem de contas/clientes."
+        },
+        {
+          "titulo": "30- Considerações Finais",
+          "tipo": "conclusao",
+          "periodo": null,
+          "nota": "Conclusões e próximos passos dos estudos disponíveis."
+        },
+        {
+          "titulo": "30- DRE",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "DRE aparece no roteiro, com numeração duplicada. Falta validar a base e os indicadores deste slide."
+        },
+        {
+          "titulo": "31- DRE",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta validar a base e os indicadores de DRE deste slide."
+        }
+      ],
+      "roteiro_observado": [
+        "1- Início",
+        "2- Vendas R$ MIL",
+        "2.2- Particip. % Vendas (Total)",
+        "3- Novos Cartões",
+        "4- Produtividade de Propostas",
+        "4.1- Produtividade de Propostas (%)",
+        "4.2- Análise Propostas Negadas",
+        "5- Ativos Mês a Mês (Posterior)",
+        "5.1- Ativos Mês a Mês (Anterior)",
+        "6- Aprovação x Ativação",
+        "6.1- Ativação após Cobrança",
+        "7- Produtos Com Desconto",
+        "8- Evolução da Base",
+        "9- Compras, Gasto e Ticket",
+        "10- Status (Cobrança)",
+        "11- Análise dos Limites",
+        "12- Faturamento e Recebimento",
+        "12.1- Recebimento de Fatura (%)",
+        "13- FPD 1 & 2 %Quantidade",
+        "14- Evol. Gastos e Faturas (6 Meses)",
+        "15- Entrada em Cobrança (MM6)",
+        "16- Carteira por Faixas de Atraso",
+        "17- Inadimplência (30D & 180D)",
+        "18- Entrada e Recup Cobrança",
+        "19- Previsão e Perda Realizada",
+        "19.1- VALOR PERDA X FPD",
+        "19.2- QUANT PERDA X FPD",
+        "30- Considerações Finais",
+        "30- DRE",
+        "31- DRE",
+        "FINAL"
+      ]
+    },
+    "semanal": {
+      "nome": "Reunião Semanal",
+      "slides_ativos": [
+        {
+          "titulo": "1- Início",
+          "tipo": "inicio",
+          "periodo": null,
+          "nota": "Resumo para a reunião."
+        },
+        {
+          "titulo": "2- Vendas Atual x Anterior",
+          "tipo": "vendas",
+          "periodo": null,
+          "nota": "Atual x Anterior conforme o período escolhido."
+        },
+        {
+          "titulo": "3- Vendas R$ Mensal",
+          "tipo": "vendas",
+          "periodo": "mes",
+          "nota": "Vendas R$ Mensal."
+        },
+        {
+          "titulo": "4- Propostas (Diário)",
+          "tipo": "propostas_parcial",
+          "periodo": "hoje",
+          "nota": "Propostas (Diário); data operacional disponível, não a data atual do calendário."
+        },
+        {
+          "titulo": "5- Propostas (Mensal)",
+          "tipo": "propostas_parcial",
+          "periodo": "mes",
+          "nota": "Propostas (Mensal)."
+        },
+        {
+          "titulo": "6- Propostas (Consultores)",
+          "tipo": "pendente",
+          "periodo": null,
+          "nota": "Falta relacionar consultor, escala, produtividade e metas; os totais de propostas não substituem essa análise."
+        },
+        {
+          "titulo": "7- Cobrança",
+          "tipo": "fluxos",
+          "periodo": null,
+          "nota": "Pagamentos e entradas em cobrança nos períodos selecionados."
+        }
+      ],
+      "roteiro_observado": [
+        "1- Início",
+        "2- Vendas Atual x Anterior",
+        "3- Vendas R$ Mensal",
+        "4- Propostas (Diário)",
+        "5- Propostas (Mensal)",
+        "6- Propostas (Consultores)",
+        "7- Cobrança",
+        "8- OFF",
+        "9- OFF",
+        "10- OFF",
+        "11- OFF"
+      ]
+    }
+  }
+}
