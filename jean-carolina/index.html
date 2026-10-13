@@ -66,10 +66,20 @@ section{padding:92px 24px;position:relative}
 .map{min-height:100%;display:grid;place-items:center;text-align:center;background:linear-gradient(135deg,var(--olive-light),var(--lav-light))}
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .badge{display:inline-block;padding:8px 12px;border-radius:999px;background:var(--olive-light);font-family:Arial,Helvetica,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--olive-dark);margin-bottom:12px}
-.rsvp-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
-.rsvp-intro{background:var(--olive);color:#fff;position:relative;overflow:hidden}
-.rsvp-intro h3{color:#fff;font-size:42px}
-.rsvp-intro p{color:rgba(255,255,255,.9)}
+.rsvp-search-wrap{max-width:720px;margin:0 auto;text-align:center}
+.rsvp-title-script{font-family:"Brush Script MT","Segoe Script","Lucida Handwriting",cursive;font-size:clamp(46px,7vw,74px);font-weight:400;color:var(--olive-dark);margin:0 0 34px;line-height:1.05}
+.rsvp-search-box{max-width:470px;margin:0 auto}
+.rsvp-search-row{display:flex;gap:10px;align-items:stretch}
+.rsvp-search-row input{flex:1;text-align:left}
+.search-btn{border:0;border-radius:12px;padding:0 22px;background:var(--olive);color:#fff;font-family:Arial,Helvetica,sans-serif;font-weight:700;cursor:pointer;min-height:48px}
+.search-btn:hover{background:var(--olive-dark)}
+.rsvp-results{display:none;max-width:560px;margin:26px auto 0;text-align:left}
+.rsvp-results.show{display:block}
+.rsvp-result-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(60,65,45,.06)}
+.rsvp-result-card h3{font-size:25px;margin:0 0 6px;color:var(--olive-dark);font-weight:400}
+.rsvp-result-card p{font-family:Arial,Helvetica,sans-serif;color:var(--muted);font-size:14px;margin:0 0 14px}
+.rsvp-details{display:none;max-width:620px;margin:28px auto 0;text-align:left}
+.rsvp-details.show{display:block}
 label{display:block;font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:13px;margin:16px 0 8px}
 input,textarea,select{width:100%;padding:14px 15px;border:1px solid #d9d6cb;background:#fff;border-radius:14px;outline:none;font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
 input:focus,textarea:focus,select:focus{border-color:var(--olive);box-shadow:0 0 0 3px rgba(104,113,79,.10)}
@@ -104,7 +114,7 @@ footer p{font-family:Arial,Helvetica,sans-serif;opacity:.78}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:900px){
 .menu{display:none;position:absolute;top:75px;left:16px;right:16px;flex-direction:column;align-items:stretch;background:var(--paper);padding:18px;border-radius:18px;box-shadow:var(--shadow)}
-.menu.open{display:flex}.menu-toggle{display:block}.grid2,.info-grid,.rsvp-grid{grid-template-columns:1fr}.gift-grid{grid-template-columns:repeat(2,1fr)}
+.menu.open{display:flex}.menu-toggle{display:block}.grid2,.info-grid{grid-template-columns:1fr}.gift-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:560px){
 .nav-inner{height:64px}.hero{padding-top:90px}.hero-photo{aspect-ratio:4/3;border-radius:100px 100px 20px 20px}.timebox{min-width:80px;padding:12px 8px}.timebox strong{font-size:23px}section{padding:72px 18px}.card{padding:24px}.gift-grid,.gallery{grid-template-columns:1fr}.gift p{min-height:0}
@@ -197,32 +207,32 @@ footer p{font-family:Arial,Helvetica,sans-serif;opacity:.78}
   </div>
 </section>
 
-<section id="presenca">
+<section id="presenca" class="paper">
   <div class="container">
-    <div class="section-head">
+    <div class="rsvp-search-wrap">
       <div class="eyebrow">RSVP</div>
-      <h2>Confirme sua presença</h2>
-      <p>Esta é a prévia visual do formulário. Na versão final, a confirmação será registrada com segurança.</p>
-    </div>
-    <div class="rsvp-grid">
-      <div class="card rsvp-intro">
-        <h3>Vai ser ainda mais especial com você.</h3>
-        <p>Para nos ajudar com a organização, confirme sua presença quando o formulário definitivo estiver liberado.</p>
+      <h2 class="rsvp-title-script">Confirme sua presença</h2>
+
+      <div class="rsvp-search-box" id="rsvpSearchBox">
+        <div class="rsvp-search-row">
+          <input id="guestSearch" autocomplete="off" placeholder="Digite seu nome" aria-label="Digite seu nome">
+          <button class="search-btn" id="guestSearchBtn" type="button">Pesquisar</button>
+        </div>
       </div>
-      <div class="card">
+
+      <div class="rsvp-results" id="rsvpResults"></div>
+
+      <div class="card rsvp-details" id="rsvpDetails">
         <form id="rsvpForm">
-          <label for="guestName">Seu nome completo</label>
-          <input id="guestName" placeholder="Digite seu nome completo">
           <label for="attendance">Você comparecerá?</label>
           <select id="attendance">
             <option value="">Selecione</option>
-            <option>Sim, estarei presente ♥️</option>
-            <option>Infelizmente não poderei comparecer</option>
+            <option value="sim">Sim, estarei presente ♥️</option>
+            <option value="nao">Infelizmente não poderei comparecer</option>
           </select>
           <label for="message">Mensagem aos noivos (opcional)</label>
           <textarea id="message" rows="4" placeholder="Deixe uma mensagem carinhosa..."></textarea>
-          <button class="btn" type="submit" style="width:100%;margin-top:18px">Confirmar resposta</button>
-          <div class="note">Prévia pública: a lista real de convidados não fica exposta no código do site. O registro online será conectado depois.</div>
+          <button class="btn" type="submit" style="width:100%;margin-top:18px">Confirmar presença</button>
         </form>
       </div>
     </div>
@@ -284,7 +294,8 @@ const gifts=[
 {id:5,name:"Jogo de Cama",price:249.90,icon:"🛏️",desc:"Conforto para o novo lar."},
 {id:6,name:"Aparelho de Jantar",price:329.90,icon:"🍽️",desc:"Para receber a família com carinho."},
 {id:7,name:"Passeio na Lua de Mel",price:499.90,icon:"🌿",desc:"Um momento especial para guardar na memória."},
-{id:8,name:"Jantar dos Recém-casados",price:199.90,icon:"🕯️",desc:"Um jantar romântico para celebrar a nova fase."}
+{id:8,name:"Jantar dos Recém-casados",price:199.90,icon:"🕯️",desc:"Um jantar romântico para celebrar a nova fase."},
+{id:9,name:"Filtro de Água — Cota",price:200.00,icon:"💧",desc:"Filtro de água dividido em 3 cotas de R$ 200 cada."}
 ];
 let cart=[];
 const fmt=v=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(v);
@@ -297,7 +308,24 @@ countdown();setInterval(countdown,1000);
 const menu=document.getElementById("menu");
 document.getElementById("menuToggle").onclick=()=>menu.classList.toggle("open");
 menu.querySelectorAll("a").forEach(a=>a.onclick=()=>menu.classList.remove("open"));
-document.getElementById("rsvpForm").onsubmit=e=>{e.preventDefault();showToast("Formulário em modo de prévia. A confirmação online será ativada depois.")};
+const searchInput=document.getElementById("guestSearch");
+const searchBtn=document.getElementById("guestSearchBtn");
+const resultsBox=document.getElementById("rsvpResults");
+const detailsBox=document.getElementById("rsvpDetails");
+function runGuestSearch(){
+  const q=(searchInput.value||"").trim();
+  detailsBox.classList.remove("show");
+  resultsBox.classList.add("show");
+  if(q.length<2){
+    resultsBox.innerHTML='<div class="rsvp-result-card"><p style="margin:0">Digite pelo menos duas letras do seu nome.</p></div>';
+    return;
+  }
+  resultsBox.innerHTML='<div class="rsvp-result-card"><h3>Pesquisa pronta</h3><p>O nome só aparecerá aqui depois que a pessoa pesquisar, exatamente como no modelo escolhido.</p><button type="button" class="btn" id="demoSelect">Continuar</button></div>';
+  document.getElementById("demoSelect").onclick=()=>{resultsBox.classList.remove("show");detailsBox.classList.add("show");};
+}
+searchBtn.onclick=runGuestSearch;
+searchInput.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();runGuestSearch();}});
+document.getElementById("rsvpForm").onsubmit=e=>{e.preventDefault();showToast("Fluxo de confirmação pronto. Falta apenas conectar o banco de convidados.")};
 const grid=document.getElementById("giftGrid");
 grid.innerHTML=gifts.map(g=>`<article class="gift"><div class="gift-img">${g.icon}</div><div class="gift-body"><h3>${g.name}</h3><p>${g.desc}</p><div class="gift-footer"><span class="price">${fmt(g.price)}</span><button class="small-btn" data-id="${g.id}">Presentear</button></div></div></article>`).join("");
 grid.onclick=e=>{const b=e.target.closest("[data-id]");if(!b)return;const g=gifts.find(x=>x.id===Number(b.dataset.id));cart.push(g);updateCart();showToast(g.name+" adicionado ao carrinho.")};
