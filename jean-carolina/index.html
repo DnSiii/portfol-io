@@ -29,6 +29,46 @@ section{position:relative;padding:90px 22px} .container{max-width:1080px;margin:
 footer{padding:70px 22px;background:var(--olive2);color:white;text-align:center} footer h2{font-family:'Great Vibes',cursive;font-size:56px;font-weight:400;margin:0} footer p{font:400 12px Montserrat,Arial,sans-serif;opacity:.8} .toast{position:fixed;left:50%;bottom:92px;z-index:180;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:#2f3425;color:white;padding:12px 17px;border-radius:999px;font:500 12px Montserrat,Arial,sans-serif;transition:.22s} .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:900px){.menu{display:none;position:absolute;left:14px;right:14px;top:74px;flex-direction:column;align-items:stretch;background:#fff;padding:18px;border-radius:16px;box-shadow:var(--shadow)} .menu.open{display:flex} .menu-toggle{display:block} .grid2,.info-grid{grid-template-columns:1fr} .gift-grid{grid-template-columns:repeat(2,1fr)} .gallery{grid-template-columns:1fr 1fr;grid-template-rows:250px 200px} .gallery img:first-child{grid-column:1/3;grid-row:auto}}
 @media(max-width:600px){.nav{height:62px} .hero{padding-top:82px} .hero-inner{padding-top:43vh} h1{font-size:70px} .hero-date{font-size:12px} .timebox{min-width:72px;padding:10px 7px} .timebox strong{font-size:22px} section{padding:72px 17px} .welcome{font-size:18px} .photo-strip{grid-template-columns:1fr} .photo-strip img{aspect-ratio:16/10} .card{padding:23px} .search-row{flex-direction:column} .search-btn{padding:14px} .gift-grid{grid-template-columns:1fr} .gift p{min-height:0} .gallery{grid-template-columns:1fr;grid-template-rows:none} .gallery img,.gallery img:first-child{grid-column:auto;grid-row:auto;height:auto;aspect-ratio:3/2} .pix-actions{grid-template-columns:1fr}}
+
+/* GALERIA DO CASAL — TODAS AS FOTOS EXATAMENTE IGUAIS */
+#fotos .gallery{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:stretch !important;
+  gap:16px !important;
+  grid-template-columns:none !important;
+  grid-template-rows:none !important;
+  width:100% !important;
+}
+#fotos .gallery > img,
+#fotos .gallery > img:first-child{
+  display:block !important;
+  flex:1 1 0 !important;
+  min-width:0 !important;
+  width:0 !important;
+  height:240px !important;
+  aspect-ratio:auto !important;
+  object-fit:cover !important;
+  grid-column:auto !important;
+  grid-row:auto !important;
+  border-radius:18px !important;
+}
+@media(max-width:700px){
+  #fotos .gallery{
+    overflow-x:auto !important;
+    scroll-snap-type:x mandatory;
+    padding-bottom:8px;
+  }
+  #fotos .gallery > img,
+  #fotos .gallery > img:first-child{
+    flex:0 0 78vw !important;
+    width:78vw !important;
+    min-width:78vw !important;
+    height:230px !important;
+    scroll-snap-align:start;
+  }
+}
+
 </style>
 </head>
 <body>
