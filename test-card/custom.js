@@ -33,7 +33,7 @@ function customRead(t,selection=null){
  let comparable=customCoverage(d,w.pa,w.pb);
  if(t.id==='vendas'){
   const stores=store==='all'?4:1;
-  if(current.length!==customDays(a,b)*stores)return customLimited(w,'Há dias ou lojas sem registro de Movimentação Diária no intervalo escolhido.');
+  if(current.length!==customDays(a,b)*stores)return customLimited(w,'Há dias ou lojas sem registro de Vendas no intervalo escolhido.');
   comparable=comparable&&previous.length===customDays(w.pa,w.pb)*stores;
  }
  const metric=(label,value,kind='money',old=null)=>({label,value,kind,previous:comparable?old:null});
@@ -55,58 +55,58 @@ function customRead(t,selection=null){
  let seriesField=null;
  if(t.id==='vendas'){
   const x=customSum(current,'sales'),y=customSum(previous,'sales'),n=customSum(current,'quantity'),m=customSum(previous,'quantity');
-  r.metrics=[metric('Venda Cartão (V)',x,'money',y),metric('Venda Cartão (Q)',n,'number',m),metric('Ticket Médio C',customRatio(x,n),'money',customRatio(y,m)),metric('% Valor x Varejo',current.every(x=>x.retail!=null)?customRatio(x,customSum(current,'retail')):null,'percent',previous.every(x=>x.retail!=null)?customRatio(y,customSum(previous,'retail')):null)];
+  r.metrics=[metric('Valor das vendas',x,'money',y),metric('Quantidade de compras',n,'number',m),metric('Valor médio por compra',customRatio(x,n),'money',customRatio(y,m)),metric('Participação nas vendas da loja',current.every(x=>x.retail!=null)?customRatio(x,customSum(current,'retail')):null,'percent',previous.every(x=>x.retail!=null)?customRatio(y,customSum(previous,'retail')):null)];
   r.headline=`Venda Cartão ${delta(x,y)} no intervalo escolhido`;r.summary=`${money(x)} em ${number(n)} compras líquidas. A leitura respeita as datas e lojas selecionadas.`;
-  impact('store','sales');decomp(x,y,n,m,'Quantidade de compras','Ticket Médio C');seriesField='sales';r.actions=['Na loja que mais mudou, confira a quantidade de compras, o valor médio por compra e a participação do cartão nas vendas.'];
+  impact('store','sales');decomp(x,y,n,m,'Quantidade de compras','Valor médio por compra');seriesField='sales';r.actions=['Na loja que mais mudou, confira a quantidade de compras, o valor médio por compra e a participação do cartão nas vendas.'];
  }else if(t.id==='propostas'){
   const n=customSum(current,'count'),m=customSum(previous,'count'),x=customSum(current,'approved'),y=customSum(previous,'approved');
-  r.metrics=[metric('Digitadas',n,'number',m),metric('Aprovadas',x,'number',y),metric('% Aprovadas',customRatio(x,n),'percent',customRatio(y,m)),metric('Recusadas',customSum(current,'denied'),'number',customSum(previous,'denied')),metric('Pendentes',customSum(current,'pending'),'number',customSum(previous,'pending'))];
-  r.headline=`Aprovadas ${delta(x,y)} no intervalo escolhido`;r.summary=`${number(x)} Aprovadas em ${number(n)} Digitadas; ${number(customSum(current,'denied'))} Recusadas e ${number(customSum(current,'pending'))} Pendentes. Status observado na extração, agrupado pela data da proposta.`;
-  impact('store','approved');decomp(x,y,n,m,'Digitadas','% Aprovadas');seriesField='approved';r.actions=['Separar mudança nas Digitadas de mudança no percentual de aprovação.'];r.limits.push('Pendentes não reconstituem a fila histórica. Score e ativação exigem vínculos próprios.');
+  r.metrics=[metric('Recebidas',n,'number',m),metric('Aprovadas',x,'number',y),metric('% Aprovadas',customRatio(x,n),'percent',customRatio(y,m)),metric('Recusadas',customSum(current,'denied'),'number',customSum(previous,'denied')),metric('Pendentes',customSum(current,'pending'),'number',customSum(previous,'pending'))];
+  r.headline=`Aprovadas ${delta(x,y)} no intervalo escolhido`;r.summary=`${number(x)} Aprovadas em ${number(n)} Recebidas; ${number(customSum(current,'denied'))} Recusadas e ${number(customSum(current,'pending'))} Pendentes. Status observado na extração, agrupado pela data da solicitação.`;
+  impact('store','approved');decomp(x,y,n,m,'Recebidas','% Aprovadas');seriesField='approved';r.actions=['Separar mudança nas Recebidas de mudança no percentual de aprovação.'];r.limits.push('Pendentes não reconstituem a fila histórica. Pontuação de crédito e ativação exigem vínculos próprios.');
  }else if(t.id==='cobranca'){
   const x=customSum(current,'value'),y=customSum(previous,'value'),n=customSum(current,'count'),m=customSum(previous,'count');
   const select=(xs,start,end)=>xs.filter(z=>z.date>=start&&z.date<=end);
   const en=select(d.entries,a,b),ep=select(d.entries,w.pa,w.pb),ag=select(d.agreements,a,b),ap=select(d.agreements,w.pa,w.pb),fu=select(d.fulfilled,a,b);
-  r.metrics=[metric('Pagamentos em Cobrança',x,'money',y),metric('Pagamentos (Q)',n,'number',m),metric('Novos Acordos',customSum(ag,'count'),'number',customSum(ap,'count')),metric('Entrada em Cobrança (V)',customSum(en,'principal'),'money',customSum(ep,'principal'))];
+  r.metrics=[metric('Pagamentos recuperados',x,'money',y),metric('Quantidade de pagamentos',n,'number',m),metric('Novos Acordos',customSum(ag,'count'),'number',customSum(ap,'count')),metric('Valor que entrou em recuperação',customSum(en,'principal'),'money',customSum(ep,'principal'))];
   for(const [name,coverage] of Object.entries(d.event_coverage)){
-   if(a<coverage.start||b>coverage.end){r.limits.push(`${name}: cobertura ${date(coverage.start)} a ${date(coverage.end)}; não temos o total completo desse período.`);if(name==='Novos Acordos')r.metrics[2].value=r.metrics[2].previous=null;if(name==='Entrada em Cobrança')r.metrics[3].value=r.metrics[3].previous=null;}
-   else if(w.pa<coverage.start||w.pb>coverage.end){if(name==='Novos Acordos')r.metrics[2].previous=null;if(name==='Entrada em Cobrança')r.metrics[3].previous=null;}
+   if(a<coverage.start||b>coverage.end){r.limits.push(`${name}: cobertura ${date(coverage.start)} a ${date(coverage.end)}; não temos o total completo desse período.`);if(name==='Novos Acordos')r.metrics[2].value=r.metrics[2].previous=null;if(name==='Entrada em recuperação')r.metrics[3].value=r.metrics[3].previous=null;}
+   else if(w.pa<coverage.start||w.pb>coverage.end){if(name==='Novos Acordos')r.metrics[2].previous=null;if(name==='Entrada em recuperação')r.metrics[3].previous=null;}
   }
-  r.headline=`Pagamentos em Cobrança ${delta(x,y)}`;r.summary=`${money(x)} em ${number(n)} registros de pagamento no intervalo escolhido. Pagamentos e entradas somam o que ocorreu no período. Valor em Cobrança mostra o saldo em uma data.`;
+  r.headline=`Pagamentos recuperados ${delta(x,y)}`;r.summary=`${money(x)} em ${number(n)} registros de pagamento no intervalo escolhido. Pagamentos e entradas somam o que ocorreu no período. Saldo a recuperar mostra o saldo em uma data.`;
   impact('band','value');decomp(x,y,n,m,'Quantidade de pagamentos','Valor médio por registro');seriesField='value';r.actions=['Conferir processamento e a faixa de atraso de maior impacto.'];
   add('Novos Acordos e Cumpridos','Cumpridos podem vir de acordos anteriores. Por isso, dividir cumprimentos por novos acordos não mostra quantos acordos desse período foram cumpridos.');
   const posDates=Object.keys(d.positions).filter(z=>z>=a&&z<=b).sort(),endDate=posDates.at(-1);
   if(endDate){const g=d.positions[endDate];r.portfolio={date:endDate,principal:Object.values(g).reduce((n,z)=>n+z.principal,0),rows:Object.values(g).reduce((n,z)=>n+z.rows,0),statuses:Object.entries(g).map(([label,z])=>({label,value:z.principal,rows:z.rows}))};r.limits.push(`Carteira mostrada na posição ${date(endDate)}, sem somar saldos dos dias.`);}
  }else if(t.id==='faturamento'){
-  if(!current.length)return customLimited(w,'Não há vencimentos Em Dia no intervalo escolhido.');
+  if(!current.length)return customLimited(w,'Não há vencimentos do grupo principal no intervalo escolhido.');
   comparable=comparable&&previous.length>0;
   const x=customSum(current,'billed'),y=customSum(previous,'billed'),n=customSum(current,'qty'),m=customSum(previous,'qty'),paid=customSum(current,'paid'),old=customSum(previous,'paid');
-  r.metrics=[metric('Valor Em Dia',x,'money',y),metric('Qtde Em Dia',n,'number',m),metric('Pagamentos Em Dia (V)',paid,'money',old),metric('% Pagamento Em Dia',customRatio(paid,x),'percent',customRatio(old,y))];
-  r.headline=`Valor Em Dia ${delta(x,y)}`;r.summary=`${money(x)} nas faturas com vencimento no intervalo escolhido. Este subtotal não é Faturamento Total do BI.`;
-  impact('cycle','billed');decomp(x,y,n,m,'Quantidade de faturas','Valor médio da fatura');seriesField='billed';r.actions=['Investigar o vencimento de maior impacto e comparar pagamentos com o mesmo tempo após o vencimento.'];r.limits.push('Pagamentos refletem a extração, não mostram como o recebimento estava em uma data passada. Aviso A/B não foram consolidados no total.');
+  r.metrics=[metric('Valor das faturas do grupo principal',x,'money',y),metric('Quantidade de faturas do grupo principal',n,'number',m),metric('Valor recebido das faturas do grupo principal',paid,'money',old),metric('Percentual recebido do grupo principal',customRatio(paid,x),'percent',customRatio(old,y))];
+  r.headline=`Valor das faturas do grupo principal ${delta(x,y)}`;r.summary=`${money(x)} nas faturas com vencimento no intervalo escolhido. Este valor cobre apenas o grupo principal de faturas, não todos os grupos.`;
+  impact('cycle','billed');decomp(x,y,n,m,'Quantidade de faturas','Valor médio da fatura');seriesField='billed';r.actions=['Investigar o vencimento de maior impacto e comparar pagamentos com o mesmo tempo após o vencimento.'];r.limits.push('Pagamentos refletem a extração, não mostram como o recebimento estava em uma data passada. grupos adicionais de faturas não foram consolidados no total.');
  }else if(t.id==='descontos'){
   const x=customSum(current,'sales'),y=customSum(previous,'sales'),profit=customSum(current,'profit'),old=customSum(previous,'profit');
-  r.metrics=[metric('Venda líquida dos itens',x,'money',y),metric('Lucro líquido dos itens',profit,'money',old),metric('Margem dos Itens (%)',customRatio(profit,x),'percent',customRatio(old,y)),metric('% Venda Fidelidade / Itens',customRatio(customSum(current,'loyal'),x),'percent',customRatio(customSum(previous,'loyal'),y))];
-  r.headline=`Venda dos itens ${delta(x,y)}`;r.summary=`${money(x)} nos itens da base de produtos analisados no intervalo escolhido. Fidelidade é participação observada; não confirma que o desconto gerou vendas adicionais.`;
+  r.metrics=[metric('Venda líquida dos itens',x,'money',y),metric('Lucro líquido dos itens',profit,'money',old),metric('Margem dos Itens (%)',customRatio(profit,x),'percent',customRatio(old,y)),metric('% Vendos descontos / Itens',customRatio(customSum(current,'loyal'),x),'percent',customRatio(customSum(previous,'loyal'),y))];
+  r.headline=`Venda dos itens ${delta(x,y)}`;r.summary=`${money(x)} nos itens da base de produtos analisados no intervalo escolhido. desconto é participação observada; não confirma que o desconto gerou vendas adicionais.`;
   impact('group','sales');seriesField='sales';r.actions=['Revisar os departamentos de maior impacto e a margem dos itens.'];r.limits.push('Cupons repetidos por produto não são somados. O arquivo All não foi adicionado ao analítico.');
  }else if(t.id==='risco'){
   const n=customDistinct(d.membership,a,b),m=customDistinct(d.membership,w.pa,w.pb),x=customDistinct(d.membership,a,b,true),y=customDistinct(d.membership,w.pa,w.pb,true),rate=customRatio(x,n),old=customRatio(y,m);
-  if(!n)return customLimited(w,'Não há CPFs com FPD1 definido para primeiros vencimentos no intervalo escolhido.');
+  if(!n)return customLimited(w,'Não há clientes com atraso na primeira fatura definido para primeiros vencimentos no intervalo escolhido.');
   comparable=comparable&&m>0;
-  r.metrics=[metric('% FPD1 / Ativas',rate,'percent',old),metric('Ativas com FPD1 definido',n,'number',m),metric('FPD1 SIM (CPFs)',x,'number',y)];
-  r.headline=comparable?`% FPD1 / Ativas mudou ${number((rate-old)*100)} pontos percentuais`:'FPD1 dos primeiros vencimentos selecionados';r.summary=`${number(x)} CPFs distintos com FPD1 SIM em ${number(n)} CPFs com SIM ou NAO. A seleção usa a data do primeiro vencimento, e não a data da aprovação.`;
-  r.limits.push(`Último primeiro vencimento disponível: ${date(d.last_due_date)}. Safras recentes não têm necessariamente o mesmo tempo de observação.`);add('Antes de concluir piora ou melhora','A taxa foi recalculada para os primeiros vencimentos escolhidos, com CPFs distintos. Score, loja e tempo após o vencimento precisam de validação antes de concluir o motivo.');r.actions=['Comparar com o mesmo tempo após o primeiro vencimento.'];
+  r.metrics=[metric('Taxa de atraso na primeira fatura',rate,'percent',old),metric('Clientes avaliados na primeira fatura',n,'number',m),metric('Clientes com atraso na primeira fatura',x,'number',y)];
+  r.headline=comparable?`Taxa de atraso na primeira fatura mudou ${number((rate-old)*100)} pontos percentuais`:'atraso na primeira fatura dos primeiros vencimentos selecionados';r.summary=`${number(x)} clientes distintos com atraso na primeira fatura em ${number(n)} clientes com SIM ou NAO. A seleção usa a data do primeiro vencimento, e não a data da aprovação.`;
+  r.limits.push(`Último primeiro vencimento disponível: ${date(d.last_due_date)}. Safras recentes não têm necessariamente o mesmo tempo de observação.`);add('Antes de concluir piora ou melhora','A taxa foi recalculada para os primeiros vencimentos escolhidos, com clientes distintos. Pontuação de crédito, loja e tempo após o vencimento precisam de validação antes de concluir o motivo.');r.actions=['Comparar com o mesmo tempo após o primeiro vencimento.'];
   r.cohorts=[];
   const months=[...new Set(d.membership.flatMap(z=>z.dates).filter(z=>z>=a&&z<=b).map(z=>z.slice(0,7)))].sort();
   r.series=months.map(month=>{const start=a>month+'-01'?a:month+'-01';const end=b<month+'-31'?b:month+'-31';const eligible=customDistinct(d.membership,start,end),bad=customDistinct(d.membership,start,end,true),rate=customRatio(bad,eligible);r.cohorts.push({cohort:month+' · '+date(start)+' a '+date(end),eligible,bad,rate});return {date:start,value:rate==null?null:rate*100};});
  }else if(t.id==='carteira'){
-  if(!a.endsWith('-01')||!customShift(b,1).endsWith('-01'))return customLimited(w,'Contas Ativas tem base mensal: selecione meses completos, do primeiro ao último dia. Não existe detalhamento diário nesta fonte.');
+  if(!a.endsWith('-01')||!customShift(b,1).endsWith('-01'))return customLimited(w,'Clientes ativos tem base mensal: selecione meses completos, do primeiro ao último dia. Não existe detalhamento diário nesta fonte.');
   const expectedMonths=(Number(b.slice(0,4))-Number(a.slice(0,4)))*12+Number(b.slice(5,7))-Number(a.slice(5,7))+1;
-  const rows=t.monthly_base.filter(z=>z.end>=a&&z.end<=b);if(rows.length!==expectedMonths)return customLimited(w,'Há meses sem cobertura na base de Contas Ativas.');
+  const rows=t.monthly_base.filter(z=>z.end>=a&&z.end<=b);if(rows.length!==expectedMonths)return customLimited(w,'Há meses sem cobertura na base de Clientes ativos.');
   comparable=comparable&&w.pa.endsWith('-01')&&customShift(w.pb,1).endsWith('-01');
   const oldRows=t.monthly_base.filter(z=>z.end>=w.pa&&z.end<=w.pb),n=customDistinct(d.membership,a,b),m=customDistinct(d.membership,w.pa,w.pb);
-  r.metrics=[metric('Contas Ativas no Intervalo',n,'number',m),metric('Compras (Q)',customSum(rows,'purchases'),'number',customSum(oldRows,'purchases')),metric('Compras (V)',customSum(rows,'sales'),'money',customSum(oldRows,'sales'))];
-  r.headline=`Contas Ativas ${delta(n,m)} no intervalo`;r.summary=`${number(n)} CPFs ativos distintos na união dos meses escolhidos. Clientes presentes em mais de um mês são contados uma vez.`;r.series=rows.map(z=>({date:z.end,value:z.accounts}));add('Base mensal e união de clientes','O intervalo usa a união de CPFs calculada por informações agrupadas por mês. Não soma contagens distintas de meses diferentes.');r.actions=['Separar mudança na base de mudança na frequência de compra.'];r.limits.push('Não equivale às taxas de ativação Anterior/Posterior, ao cadastro Clube ou à Base Total.');
+  r.metrics=[metric('Clientes ativos no período',n,'number',m),metric('Quantidade de compras',customSum(rows,'purchases'),'number',customSum(oldRows,'purchases')),metric('Valor das compras',customSum(rows,'sales'),'money',customSum(oldRows,'sales'))];
+  r.headline=`Clientes ativos ${delta(n,m)} no intervalo`;r.summary=`${number(n)} clientes ativos distintos na união dos meses escolhidos. Clientes presentes em mais de um mês são contados uma vez.`;r.series=rows.map(z=>({date:z.end,value:z.accounts}));add('Base mensal e união de clientes','O intervalo usa a união de clientes calculada por informações agrupadas por mês. Não soma contagens distintas de meses diferentes.');r.actions=['Separar mudança na base de mudança na frequência de compra.'];r.limits.push('Não equivale às taxas de ativação Anterior/Posterior, ao cadastro de clientes ou à Total de clientes cadastrados.');
  }
  if(seriesField){const s=customGroup(current,'date',seriesField);r.series=Object.entries(s).sort(([a],[b])=>a.localeCompare(b)).map(([date,value])=>({date,value}));}
  if(!comparable){r.limits.push(`Sem cobertura completa no comparativo ${date(w.pa)} a ${date(w.pb)}. Variações e contribuições não foram calculadas.`);add('Comparativo indisponível','O período analisado tem dados, mas faltam dados suficientes no período de comparação. Não apresentamos ausência de histórico como valor zero.');}
