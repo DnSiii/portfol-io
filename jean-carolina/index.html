@@ -42,18 +42,32 @@ footer{padding:70px 22px;background:var(--olive2);color:white;text-align:center}
 .custom-gift-row span{font:600 15px Montserrat,Arial,sans-serif;color:var(--olive2)}
 .custom-gift-row input{width:100%;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:500 13px Montserrat,Arial,sans-serif;background:#fff}
 
+
+/* RECADOS PUBLICOS */
+#recados{background:#f7f4ee}
+.recados-layout{display:grid;grid-template-columns:minmax(300px,390px) minmax(0,1fr);gap:26px;align-items:start}
+.recado-form-card{position:sticky;top:92px}
+.recados-list{display:grid;gap:14px}
+.recado-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:0 10px 28px rgba(55,61,39,.06)}
+.recado-item-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
+.recado-item h3{margin:0;color:var(--olive2);font-size:27px;font-weight:500}
+.recado-date{font:500 10px Montserrat,Arial,sans-serif;color:#92958d;white-space:nowrap}
+.recado-item p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:400 13px/1.75 Montserrat,Arial,sans-serif;color:#62655d}
+.recados-empty{background:#fff;border:1px dashed #d9d4ca;border-radius:18px;padding:24px;text-align:center;font:500 12px/1.7 Montserrat,Arial,sans-serif;color:var(--muted)}
+@media(max-width:760px){.recados-layout{grid-template-columns:1fr}.recado-form-card{position:static}}
+
 </style>
 </head>
 <body>
-<nav><div class="nav"><a class="logo" href="#inicio">Jean & Carolina</a><button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button><div class="menu" id="menu"><a href="#boas-vindas">Boas-vindas</a><a href="#cerimonia">Cerimônia</a><a href="#informacoes">Informações</a><a href="#presenca">Confirme sua presença</a><a href="#presentes">Lista de casamento</a></div></div></nav>
+<nav><div class="nav"><a class="logo" href="#inicio">Jean & Carolina</a><button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button><div class="menu" id="menu"><a href="#boas-vindas">Boas-vindas</a><a href="#cerimonia">Cerimônia</a><a href="#informacoes">Informações</a><a href="#presenca">Confirme sua presença</a><a href="#presentes">Lista de casamento</a><a href="#recados">Recados</a></div></div></nav>
 <header class="hero" id="inicio"><div class="hero-bg" id="heroBg"></div><div class="hero-inner"><div class="hero-kicker">Nosso casamento</div><h1>Jean & Carolina</h1><div class="hero-date">05 · 12 · 2026 — 10H40</div><div class="countdown"><div class="timebox"><strong id="days">--</strong><span>Dias</span></div><div class="timebox"><strong id="hours">--</strong><span>Horas</span></div><div class="timebox"><strong id="minutes">--</strong><span>Minutos</span></div><div class="timebox"><strong id="seconds">--</strong><span>Segundos</span></div></div></div></header>
 <section class="paper" id="boas-vindas"><div class="container"><div class="section-head"><div class="eyebrow">Com carinho</div><h2 class="section-title">Boas-vindas ao nosso site! ♥</h2><div class="leafline">✦</div></div><div class="welcome"><p>Criamos este site para compartilhar com vocês os detalhes da organização do nosso casamento. Estamos muito felizes e contamos com a presença de todos no nosso grande dia!</p><p>Aqui vocês encontrarão também dicas para trajes e estacionamento. Ah, é importante também confirmar sua presença. Para isso, contamos com sua ajuda clicando no menu <strong>“Confirme sua Presença”</strong> e preenchendo os dados necessários.</p><p>Caso queiram nos presentear, escolham qualquer item da nossa <strong>Lista de Casamento</strong>.</p><p><strong>Fiquem à vontade! Aguardamos vocês ansiosamente no nosso grande dia! ♥</strong></p></div><div class="photo-strip"><img data-img="gallery1" alt="Jean e Carolina"><img data-img="gallery2" alt="Jean e Carolina ao pôr do sol"><img data-img="gallery3" alt="Jean e Carolina em ensaio fotográfico"></div></div></section>
 <section id="cerimonia"><div class="container"><div class="section-head"><div class="eyebrow">O grande dia</div><h2 class="section-title">Cerimônia ♥ 🍃</h2><p>Gostaríamos muito de contar com a presença de todos vocês neste momento tão especial.</p></div><div class="grid2"><div class="card"><h3>Nossa união</h3><p>Gostaríamos muito de contar com a presença de todos vocês no momento em que nossa união será abençoada perante Jeová Deus!</p><p>Tentaremos ser extremamente pontuais. Contamos com vocês!</p><div class="detail"><div class="ico">📅</div><div><strong>Data</strong>05 de dezembro de 2026</div></div><div class="detail"><div class="ico">🕥</div><div><strong>Horário</strong>10h40</div></div><div class="detail"><div class="ico">📍</div><div><strong>Local</strong>Estr. Mun. Santo Antonio, 270<br>Jardim Sandra II, Mairiporã - SP<br>07631-315</div></div><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Estr.+Mun.+Santo+Antonio,+270,+Jardim+Sandra+II,+Mairipor%C3%A3,+SP,+07631-315">📍 Como chegar</a></div><div class="card map-card"><div><div style="font-size:54px">🌿</div><h3>Mairiporã, SP</h3><p>Salve o endereço e programe sua chegada com antecedência para celebrarmos juntos desde o início.</p></div></div></div></div></section>
 <section class="paper" id="informacoes"><div class="container"><div class="section-head"><div class="eyebrow">Para os convidados</div><h2 class="section-title">Informações importantes</h2><p>Alguns detalhes para deixar a chegada de vocês mais tranquila.</p></div><div class="info-grid"><div class="card info-card"><span class="badge">Trajes</span><h3>O que vestir?</h3><p>As orientações finais sobre traje serão acrescentadas aqui assim que os noivos fecharem os detalhes.</p><div class="coming">Informação em atualização</div></div><div class="card info-card"><span class="badge">Estacionamento</span><h3>Onde estacionar?</h3><p>As orientações de estacionamento e acesso ao local serão acrescentadas aqui antes do grande dia.</p><div class="coming">Informação em atualização</div></div></div></div></section>
-<section id="presenca"><div class="container"><div class="rsvp-wrap"><div class="eyebrow">RSVP</div><h2 class="section-title">Confirme sua presença</h2><div class="rsvp-search"><div class="search-row"><input id="guestSearch" autocomplete="off" placeholder="Digite seu nome"><button class="search-btn" id="guestSearchBtn" type="button">Pesquisar</button></div></div><div class="results" id="results"></div><div class="card rsvp-form" id="rsvpFormBox"><div class="selected">Convidado selecionado<strong id="selectedGuest"></strong></div><form id="rsvpForm"><label for="attendance">Você comparecerá?</label><select id="attendance"><option value="">Selecione</option><option value="Sim">Sim, estarei presente ♥</option><option value="Não">Infelizmente não poderei comparecer</option></select><label for="rsvpMessage">Mensagem aos noivos (opcional)</label><textarea id="rsvpMessage" rows="4" placeholder="Deixe uma mensagem carinhosa..."></textarea><button class="btn" type="submit" style="width:100%;margin-top:16px">Confirmar presença</button></form><div class="success" id="rsvpSuccess"></div></div></div></div></section>
+<section id="presenca"><div class="container"><div class="rsvp-wrap"><div class="eyebrow">RSVP</div><h2 class="section-title">Confirme sua presença</h2><div class="rsvp-search"><div class="search-row"><input id="guestSearch" autocomplete="off" placeholder="Digite seu nome"><button class="search-btn" id="guestSearchBtn" type="button">Pesquisar</button></div></div><div class="results" id="results"></div><div class="card rsvp-form" id="rsvpFormBox"><div class="selected">Convidado selecionado<strong id="selectedGuest"></strong></div><form id="rsvpForm"><label for="attendance">Você comparecerá?</label><select id="attendance"><option value="">Selecione</option><option value="Sim">Sim, estarei presente ♥</option><option value="Não">Infelizmente não poderei comparecer</option></select><button class="btn" type="submit" style="width:100%;margin-top:16px">Confirmar presença</button></form><div class="success" id="rsvpSuccess"></div></div></div></div></section>
 <section class="gifts" id="presentes"><div class="container"><div class="section-head"><div class="eyebrow">Com carinho</div><h2 class="section-title">Lista de Casamento</h2><p>Escolha um presente ou uma cota para participar desse novo começo com a gente.</p></div><div class="notice">Cada cota corresponde a uma parte do valor do presente escolhido. Quando todas as cotas de um item forem preenchidas, os noivos usarão esse valor para comprar exatamente aquele presente.</div><div class="gift-grid" id="giftGrid"></div></div></section>
 <section class="paper" id="fotos"><div class="container"><div class="section-head"><div class="eyebrow">Nós dois</div><h2 class="section-title">Um pouquinho da nossa história</h2><p>Cada foto guarda um pedacinho da nossa caminhada. Agora estamos muito felizes em dividir este novo capítulo com vocês.</p></div><div class="gallery"><img data-img="gallery1" alt="Jean e Carolina"><img data-img="gallery2" alt="Jean e Carolina ao pôr do sol"></div><div class="quote">“Que este seja apenas o começo de muitos anos caminhando lado a lado.”</div></div></section>
-<footer><h2>Jean & Carolina</h2><p>05 · 12 · 2026 — 10h40</p><p>Esperamos vocês com muito carinho. ♥</p></footer>
+<section id="recados"><div class="container"><div class="section-head"><div class="eyebrow">Com carinho</div><h2 class="section-title">Deixe seu recado</h2><p>Escreva uma mensagem para Jean e Carolina. Os recados ficam públicos aqui no site.</p></div><div class="recados-layout"><div class="card recado-form-card"><form id="recadoForm"><label for="recadoNome">Seu nome</label><input id="recadoNome" maxlength="80" autocomplete="name" placeholder="Digite seu nome"><label for="recadoMensagem">Recado</label><textarea id="recadoMensagem" maxlength="600" rows="5" placeholder="Escreva seu recado..."></textarea><button class="btn" id="sendRecado" type="submit" style="width:100%;margin-top:16px">Enviar recado</button></form><div class="success" id="recadoSuccess"></div></div><div><div class="recados-list" id="recadosList"><div class="recados-empty">Carregando recados...</div></div></div></div></div></section><footer><h2>Jean & Carolina</h2><p>05 · 12 · 2026 — 10h40</p><p>Esperamos vocês com muito carinho. ♥</p></footer>
 <button class="cart-fab" id="cartBtn" aria-label="Abrir carrinho">🎁<span class="cart-count" id="cartCount">0</span></button>
 <div class="modal" id="cartModal"><div class="modal-card"><div class="modal-head"><h3>Seu presente</h3><button class="close" id="closeCart" type="button">×</button></div><div class="checkout-fields" id="checkoutFields"><div id="cartItems"></div><div class="total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div><label for="buyerName">Seu nome</label><input id="buyerName" placeholder="Quem está presenteando?"><label for="giftMessage">Mensagem para os noivos</label><textarea id="giftMessage" rows="4" placeholder="Escreva uma mensagem carinhosa..."></textarea><div class="notice" style="margin:14px 0 0">Ao continuar, você verá o Pix do valor total escolhido. Cada cota fica vinculada ao presente selecionado para acompanhar quanto ainda falta para completar a compra.</div><button class="btn" id="generatePix" type="button" style="width:100%;margin-top:14px">Finalizar presente</button></div><div class="payment" id="payment"><div class="eyebrow">Pagamento via Pix</div><div class="payment-amount" id="paymentAmount"></div><div class="payment-recipient">Recebedora: <strong>Carolina Lafuente da Silva</strong></div><div id="qrcode"></div><label for="pixCode" style="text-align:left">Pix copia e cola</label><textarea class="pix-code" id="pixCode" readonly></textarea><div class="pix-actions"><button class="btn" id="copyPix" type="button">Copiar código Pix</button><button class="btn secondary" id="copyKey" type="button">Copiar chave</button></div><div class="payment-note">Confira no aplicativo do seu banco o nome do recebedor antes de concluir o pagamento. O site não recebe nem movimenta o dinheiro: o pagamento é feito diretamente pelo seu banco via Pix.</div><button class="btn secondary" id="backCart" type="button" style="width:100%;margin-top:10px">← Voltar ao carrinho</button></div></div></div>
 <div class="toast" id="toast"></div>
@@ -74,6 +88,8 @@ const gifts=[
 {id:'cardfree',name:'Cartão Presente à vontade',price:0,type:'custom',desc:'Escolha o valor que quiser presentear aos noivos.'}
 ];
 const PIX_KEY='+5511941811221', PIX_KEY_DISPLAY='11941811221', PIX_NAME='CAROLINA LAFUENTE', PIX_CITY='MAIRIPORA';
+const PUBLIC_DB_URL='https://bbjwlrjfsqtkinyqkgfs.supabase.co';
+const PUBLIC_DB_KEY='sb_publishable_CLHzi2jk7d-u6VlzHoY3Wg_sWrLa_Id';
 let cart={}, selectedGuest='', customGiftValue=0;
 const fmt=v=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v);
 const norm=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -82,7 +98,7 @@ function countdown(){const d=new Date('2026-12-05T10:40:00-03:00').getTime()-Dat
 const menu=document.getElementById('menu');document.getElementById('menuToggle').onclick=()=>menu.classList.toggle('open');menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
 const searchInput=document.getElementById('guestSearch'), results=document.getElementById('results'), rsvpBox=document.getElementById('rsvpFormBox');
 function doSearch(){const q=norm(searchInput.value);rsvpBox.classList.remove('show');if(q.length<2){results.classList.add('show');results.innerHTML='<div class="empty">Digite pelo menos duas letras do seu nome para pesquisar.</div>';return}const found=guests.filter(n=>norm(n).includes(q)).slice(0,8);results.classList.add('show');results.innerHTML=found.length?found.map(n=>`<button class="result-item" type="button" data-name="${n.replace(/"/g,'&quot;')}"><span>${n}</span><small>Selecionar →</small></button>`).join(''):'<div class="empty">Não encontramos esse nome. Confira a grafia ou tente somente parte do nome.</div>'}document.getElementById('guestSearchBtn').onclick=doSearch;searchInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doSearch()}});results.onclick=e=>{const b=e.target.closest('.result-item');if(!b)return;selectedGuest=b.dataset.name;document.getElementById('selectedGuest').textContent=selectedGuest;results.classList.remove('show');rsvpBox.classList.add('show');rsvpBox.scrollIntoView({behavior:'smooth',block:'center'})};
-document.getElementById('rsvpForm').onsubmit=e=>{e.preventDefault();const att=document.getElementById('attendance').value;if(!selectedGuest)return toast('Pesquise e selecione seu nome primeiro.');if(!att)return toast('Selecione se você irá comparecer.');const msg=document.getElementById('rsvpMessage').value.trim();const data={name:selectedGuest,attendance:att,message:msg,at:new Date().toISOString()};localStorage.setItem('jc_rsvp_'+norm(selectedGuest),JSON.stringify(data));const s=document.getElementById('rsvpSuccess');s.classList.add('show');s.innerHTML='✓ Obrigado, <strong>'+selectedGuest+'</strong>! Sua resposta foi registrada nesta prévia. A sincronização com o painel privado dos noivos será ativada com o banco de dados.';toast('Resposta registrada ♥')};
+document.getElementById('rsvpForm').onsubmit=e=>{e.preventDefault();const att=document.getElementById('attendance').value;if(!selectedGuest)return toast('Pesquise e selecione seu nome primeiro.');if(!att)return toast('Selecione se você irá comparecer.');const data={name:selectedGuest,attendance:att,at:new Date().toISOString()};localStorage.setItem('jc_rsvp_'+norm(selectedGuest),JSON.stringify(data));const s=document.getElementById('rsvpSuccess');s.classList.add('show');s.innerHTML='✓ Obrigado, <strong>'+selectedGuest+'</strong>! Sua confirmação foi registrada.';document.getElementById('rsvpForm').reset();toast('Presença registrada ♥')};
 const quotaProgress={filter:0,steamer:0,pan:0,kettle:0,rack:0,sofa:0};
 const grid=document.getElementById('giftGrid');
 function giftVisual(g){
@@ -179,5 +195,60 @@ function pixPayload(amount){const mai=id('00','BR.GOV.BCB.PIX')+id('01',PIX_KEY)
 document.getElementById('generatePix').onclick=()=>{const total=cartTotal(),buyer=document.getElementById('buyerName').value.trim();if(!total)return toast('Escolha pelo menos um presente.');if(!buyer)return toast('Informe seu nome.');const code=pixPayload(total);document.getElementById('pixCode').value=code;document.getElementById('paymentAmount').textContent=fmt(total);document.getElementById('checkoutFields').classList.add('hide');document.getElementById('payment').classList.add('show');const qr=document.getElementById('qrcode');qr.innerHTML='';if(window.QRCode)new QRCode(qr,{text:code,width:210,height:210,correctLevel:QRCode.CorrectLevel.M});else qr.innerHTML='<div class="empty">QR Code indisponível no momento. Use o Pix copia e cola abaixo.</div>';localStorage.setItem('jc_last_gift',JSON.stringify({buyer,message:document.getElementById('giftMessage').value,total,cart,at:new Date().toISOString()}))};
 document.getElementById('copyPix').onclick=async()=>{await navigator.clipboard.writeText(document.getElementById('pixCode').value);toast('Código Pix copiado')};document.getElementById('copyKey').onclick=async()=>{await navigator.clipboard.writeText(PIX_KEY_DISPLAY);toast('Chave Pix copiada')};document.getElementById('backCart').onclick=()=>{document.getElementById('payment').classList.remove('show');document.getElementById('checkoutFields').classList.remove('hide')};
 updateCart();
+
+function recadoHeaders(){
+  return {'apikey':PUBLIC_DB_KEY,'Authorization':'Bearer '+PUBLIC_DB_KEY,'Content-Type':'application/json'};
+}
+function formatRecadoDate(value){
+  try{return new Intl.DateTimeFormat('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(value))}catch{return ''}
+}
+function renderRecados(items){
+  const box=document.getElementById('recadosList');
+  if(!box)return;
+  if(!items.length){box.innerHTML='<div class="recados-empty">Ainda não há recados. Seja a primeira pessoa a deixar uma mensagem ♥</div>';return}
+  box.innerHTML='';
+  items.forEach(item=>{
+    const article=document.createElement('article');article.className='recado-item';
+    const head=document.createElement('div');head.className='recado-item-head';
+    const name=document.createElement('h3');name.textContent=item.name;
+    const date=document.createElement('span');date.className='recado-date';date.textContent=formatRecadoDate(item.created_at);
+    const msg=document.createElement('p');msg.textContent=item.message;
+    head.append(name,date);article.append(head,msg);box.appendChild(article);
+  });
+}
+async function loadRecados(){
+  const box=document.getElementById('recadosList');if(!box)return;
+  try{
+    const url=PUBLIC_DB_URL+'/rest/v1/wedding_messages?select=id,name,message,created_at&is_visible=eq.true&order=created_at.desc&limit=40';
+    const res=await fetch(url,{headers:recadoHeaders()});
+    if(!res.ok)throw new Error('Falha ao carregar recados');
+    renderRecados(await res.json());
+  }catch(err){
+    box.innerHTML='<div class="recados-empty">Os recados estão temporariamente indisponíveis. Tente novamente em alguns instantes.</div>';
+  }
+}
+document.getElementById('recadoForm').onsubmit=async e=>{
+  e.preventDefault();
+  const name=document.getElementById('recadoNome').value.trim();
+  const message=document.getElementById('recadoMensagem').value.trim();
+  if(name.length<2)return toast('Digite seu nome.');
+  if(!message)return toast('Escreva seu recado.');
+  const btn=document.getElementById('sendRecado');btn.disabled=true;btn.textContent='Enviando...';
+  try{
+    const res=await fetch(PUBLIC_DB_URL+'/rest/v1/wedding_messages',{
+      method:'POST',headers:{...recadoHeaders(),'Prefer':'return=representation'},
+      body:JSON.stringify({name,message,is_visible:true})
+    });
+    if(!res.ok)throw new Error(await res.text());
+    e.target.reset();
+    const ok=document.getElementById('recadoSuccess');ok.classList.add('show');ok.textContent='✓ Seu recado foi publicado com sucesso!';
+    toast('Recado publicado ♥');
+    await loadRecados();
+  }catch(err){
+    toast('Não foi possível publicar o recado agora.');
+  }finally{btn.disabled=false;btn.textContent='Enviar recado'}
+};
+loadRecados();
+
 </script>
 </body></html>
