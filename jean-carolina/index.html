@@ -28,6 +28,20 @@ section{position:relative;padding:90px 22px} .container{max-width:1080px;margin:
 footer{padding:70px 22px;background:var(--olive2);color:white;text-align:center} footer h2{font-family:'Great Vibes',cursive;font-size:56px;font-weight:400;margin:0} footer p{font:400 12px Montserrat,Arial,sans-serif;opacity:.8} .toast{position:fixed;left:50%;bottom:92px;z-index:180;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:#2f3425;color:white;padding:12px 17px;border-radius:999px;font:500 12px Montserrat,Arial,sans-serif;transition:.22s} .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:900px){.menu{display:none;position:absolute;left:14px;right:14px;top:74px;flex-direction:column;align-items:stretch;background:#fff;padding:18px;border-radius:16px;box-shadow:var(--shadow)} .menu.open{display:flex} .menu-toggle{display:block} .grid2,.info-grid{grid-template-columns:1fr} .gift-grid{grid-template-columns:repeat(2,1fr)} .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none} .gallery img,.gallery img:first-child{height:220px;grid-column:auto;grid-row:auto}}
 @media(max-width:600px){.nav{height:62px} .hero{padding-top:82px} .hero-inner{padding-top:43vh} h1{font-size:70px} .hero-date{font-size:12px} .timebox{min-width:72px;padding:10px 7px} .timebox strong{font-size:22px} section{padding:72px 17px} .welcome{font-size:18px} .photo-strip{grid-template-columns:1fr} .photo-strip img{aspect-ratio:16/10} .card{padding:23px} .search-row{flex-direction:column} .search-btn{padding:14px} .gift-grid{grid-template-columns:1fr} .gift p{min-height:0} .gallery{grid-template-columns:repeat(2,minmax(220px,1fr));grid-template-rows:none;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px} .gallery img,.gallery img:first-child{grid-column:auto;grid-row:auto;height:190px;aspect-ratio:auto;scroll-snap-align:start} .pix-actions{grid-template-columns:1fr}}
+
+/* CARTOES PRESENTE */
+.gift-img.gift-card-shell{padding:18px;background:#f8f6f1;display:grid;place-items:center}
+.gift-card-art{width:100%;height:100%;min-height:210px;border:1px solid #e5ddd2;border-radius:18px;background:linear-gradient(135deg,#f4eee9 0%,#fff 62%,#f0f5f1 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.gift-card-art:before,.gift-card-art:after{content:'';position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(139,118,158,.08)}
+.gift-card-art:before{left:-55px;top:-60px}.gift-card-art:after{right:-55px;bottom:-65px}
+.gift-card-icon{font-size:34px;line-height:1;margin-bottom:12px;position:relative;z-index:1}
+.gift-card-name{font:600 16px/1.2 Montserrat,Arial,sans-serif;letter-spacing:.04em;color:var(--olive2);position:relative;z-index:1}
+.gift-card-value{font:600 30px/1 Montserrat,Arial,sans-serif;color:#a64c3c;margin-top:12px;position:relative;z-index:1}
+.gift-card-note{font:500 10px/1.4 Montserrat,Arial,sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:10px;position:relative;z-index:1}
+.custom-gift-row{display:flex;align-items:center;gap:8px;margin:12px 0}
+.custom-gift-row span{font:600 15px Montserrat,Arial,sans-serif;color:var(--olive2)}
+.custom-gift-row input{width:100%;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:500 13px Montserrat,Arial,sans-serif;background:#fff}
+
 </style>
 </head>
 <body>
@@ -53,10 +67,14 @@ const gifts=[
 {id:'pan',name:'Frigideira Antiaderente',price:80,quotas:1,img:'pan',desc:'Para os primeiros almoços da casa nova.'},
 {id:'kettle',name:'Chaleira Elétrica',price:50,quotas:1,img:'kettle',desc:'Para cafés e chás nos dias tranquilos a dois.'},
 {id:'rack',name:'Rack de TV',price:215,quotas:3,img:'rack',desc:'Cotas para compor a sala do novo lar.'},
-{id:'sofa',name:'Ajuda para o Sofá',price:250,quotas:10,img:'sofa',desc:'Cotas para deixar a casa ainda mais confortável.'}
+{id:'sofa',name:'Ajuda para o Sofá',price:250,quotas:10,img:'sofa',desc:'Cotas para deixar a casa ainda mais confortável.'},
+{id:'card100',name:'Cartão Presente',price:100,type:'card',desc:'Um presente de valor livre para os noivos usarem como preferirem.'},
+{id:'card200',name:'Cartão Presente',price:200,type:'card',desc:'Um presente de valor livre para os noivos usarem como preferirem.'},
+{id:'card300',name:'Cartão Presente',price:300,type:'card',desc:'Um presente de valor livre para os noivos usarem como preferirem.'},
+{id:'cardfree',name:'Cartão Presente à vontade',price:0,type:'custom',desc:'Escolha o valor que quiser presentear aos noivos.'}
 ];
 const PIX_KEY='+5511941811221', PIX_KEY_DISPLAY='11941811221', PIX_NAME='CAROLINA LAFUENTE', PIX_CITY='MAIRIPORA';
-let cart={}, selectedGuest='';
+let cart={}, selectedGuest='', customGiftValue=0;
 const fmt=v=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v);
 const norm=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
 function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(window.__t);window.__t=setTimeout(()=>el.classList.remove('show'),2600)}
@@ -67,12 +85,94 @@ function doSearch(){const q=norm(searchInput.value);rsvpBox.classList.remove('sh
 document.getElementById('rsvpForm').onsubmit=e=>{e.preventDefault();const att=document.getElementById('attendance').value;if(!selectedGuest)return toast('Pesquise e selecione seu nome primeiro.');if(!att)return toast('Selecione se você irá comparecer.');const msg=document.getElementById('rsvpMessage').value.trim();const data={name:selectedGuest,attendance:att,message:msg,at:new Date().toISOString()};localStorage.setItem('jc_rsvp_'+norm(selectedGuest),JSON.stringify(data));const s=document.getElementById('rsvpSuccess');s.classList.add('show');s.innerHTML='✓ Obrigado, <strong>'+selectedGuest+'</strong>! Sua resposta foi registrada nesta prévia. A sincronização com o painel privado dos noivos será ativada com o banco de dados.';toast('Resposta registrada ♥')};
 const quotaProgress={filter:0,steamer:0,pan:0,kettle:0,rack:0,sofa:0};
 const grid=document.getElementById('giftGrid');
-function renderGifts(){grid.innerHTML=gifts.map(g=>`<article class="gift"><div class="gift-img"><img src="${IMAGES[g.img]}" alt="${g.name}"></div><div class="gift-body"><h3>${g.name}</h3><p>${g.desc}</p><div class="gift-meta"><span class="gift-price">${fmt(g.price)}</span><span class="quota" data-progress="${g.id}">${quotaProgress[g.id]||0}/${g.quotas}</span></div><button class="small-btn" data-gift="${g.id}">${(quotaProgress[g.id]||0)>=g.quotas?'Presente completo':'Presentear com 1 cota'}</button></div></article>`).join('')}
+function giftVisual(g){
+  if(g.type==='card'||g.type==='custom'){
+    return `<div class="gift-img gift-card-shell"><div class="gift-card-art"><div class="gift-card-icon">🎁</div><div class="gift-card-name">CARTÃO PRESENTE</div><div class="gift-card-value">${g.type==='custom'?'Valor livre':fmt(g.price)}</div><div class="gift-card-note">${g.type==='custom'?'Você escolhe quanto presentear':'Presente direto aos noivos'}</div></div></div>`;
+  }
+  return `<div class="gift-img"><img src="${IMAGES[g.img]}" alt="${g.name}"></div>`;
+}
+function renderGifts(){
+  grid.innerHTML=gifts.map(g=>{
+    if(g.type==='custom'){
+      return `<article class="gift">${giftVisual(g)}<div class="gift-body"><h3>${g.name}</h3><p>${g.desc}</p><div class="custom-gift-row"><span>R$</span><input id="customGiftInput" inputmode="decimal" placeholder="Ex.: 150,00"></div><button class="small-btn" data-custom-gift="${g.id}">Presentear com este valor</button></div></article>`;
+    }
+    if(g.type==='card'){
+      return `<article class="gift">${giftVisual(g)}<div class="gift-body"><h3>${g.name}</h3><p>${g.desc}</p><div class="gift-meta"><span class="gift-price">${fmt(g.price)}</span><span class="quota">Valor fixo</span></div><button class="small-btn" data-gift="${g.id}">Presentear</button></div></article>`;
+    }
+    return `<article class="gift">${giftVisual(g)}<div class="gift-body"><h3>${g.name}</h3><p>${g.desc}</p><div class="gift-meta"><span class="gift-price">${fmt(g.price)}</span><span class="quota" data-progress="${g.id}">${quotaProgress[g.id]||0}/${g.quotas}</span></div><button class="small-btn" data-gift="${g.id}">${(quotaProgress[g.id]||0)>=g.quotas?'Presente completo':'Presentear com 1 cota'}</button></div></article>`;
+  }).join('');
+}
 renderGifts();
-grid.onclick=e=>{const b=e.target.closest('[data-gift]');if(!b)return;const g=gifts.find(x=>x.id===b.dataset.gift);const available=Math.max(0,g.quotas-(quotaProgress[g.id]||0));const q=cart[g.id]||0;if(q>=available)return toast('Não há mais cotas disponíveis deste presente.');cart[g.id]=q+1;updateCart();toast(g.name+' adicionado ao carrinho')};
-function cartQty(){return Object.values(cart).reduce((a,b)=>a+b,0)}function cartTotal(){return gifts.reduce((s,g)=>s+(cart[g.id]||0)*g.price,0)}
-function updateCart(){document.getElementById('cartCount').textContent=cartQty();const box=document.getElementById('cartItems');const chosen=gifts.filter(g=>cart[g.id]);box.innerHTML=chosen.length?chosen.map(g=>`<div class="cart-item"><div><strong>${g.name}</strong>${fmt(g.price)} por cota<div class="qty"><button type="button" data-less="${g.id}">−</button><span>${cart[g.id]}</span><button type="button" data-more="${g.id}">+</button></div></div><div><strong>${fmt(g.price*cart[g.id])}</strong></div></div>`).join(''):'<div class="empty">Seu carrinho está vazio.</div>';document.getElementById('cartTotal').textContent=fmt(cartTotal())}
-document.getElementById('cartItems').onclick=e=>{const less=e.target.closest('[data-less]'),more=e.target.closest('[data-more]');if(less){const id=less.dataset.less;cart[id]=Math.max(0,(cart[id]||0)-1);if(!cart[id])delete cart[id];updateCart()}if(more){const id=more.dataset.more,g=gifts.find(x=>x.id===id);if((cart[id]||0)<Math.max(0,g.quotas-(quotaProgress[g.id]||0)))cart[id]=(cart[id]||0)+1;else toast('Não há mais cotas disponíveis deste presente.');updateCart()}};
+grid.onclick=e=>{
+  const custom=e.target.closest('[data-custom-gift]');
+  if(custom){
+    const input=document.getElementById('customGiftInput');
+    const raw=(input?.value||'').trim();
+    const amount=Number(raw.replace(/\./g,'').replace(',','.').replace(/[^\d.]/g,''));
+    if(!amount||amount<=0)return toast('Informe um valor válido para o cartão presente.');
+    customGiftValue=amount;
+    cart.cardfree=1;
+    updateCart();
+    toast('Cartão presente adicionado ao carrinho');
+    return;
+  }
+  const b=e.target.closest('[data-gift]');
+  if(!b)return;
+  const g=gifts.find(x=>x.id===b.dataset.gift);
+  if(!g)return;
+  if(g.type==='card'){
+    cart[g.id]=(cart[g.id]||0)+1;
+    updateCart();
+    toast(fmt(g.price)+' adicionado ao carrinho');
+    return;
+  }
+  const available=Math.max(0,g.quotas-(quotaProgress[g.id]||0));
+  const q=cart[g.id]||0;
+  if(q>=available)return toast('Não há mais cotas disponíveis deste presente.');
+  cart[g.id]=q+1;
+  updateCart();
+  toast(g.name+' adicionado ao carrinho');
+};
+function cartQty(){
+  return Object.entries(cart).reduce((sum,[id,q])=>sum+(id==='cardfree'?(q?1:0):q),0);
+}
+function cartTotal(){
+  return gifts.reduce((s,g)=>{
+    if(g.id==='cardfree')return s+(cart.cardfree?customGiftValue:0);
+    return s+(cart[g.id]||0)*g.price;
+  },0);
+}
+function updateCart(){
+  document.getElementById('cartCount').textContent=cartQty();
+  const box=document.getElementById('cartItems');
+  const chosen=gifts.filter(g=>cart[g.id]);
+  box.innerHTML=chosen.length?chosen.map(g=>{
+    if(g.id==='cardfree'){
+      return `<div class="cart-item"><div><strong>${g.name}</strong>Valor escolhido<div class="qty"><button type="button" data-less="${g.id}">−</button><span>1</span><button type="button" disabled>+</button></div></div><div><strong>${fmt(customGiftValue)}</strong></div></div>`;
+    }
+    const unitLabel=g.type==='card'?'por cartão':'por cota';
+    return `<div class="cart-item"><div><strong>${g.name}</strong>${fmt(g.price)} ${unitLabel}<div class="qty"><button type="button" data-less="${g.id}">−</button><span>${cart[g.id]}</span><button type="button" data-more="${g.id}">+</button></div></div><div><strong>${fmt(g.price*cart[g.id])}</strong></div></div>`;
+  }).join(''):'<div class="empty">Seu carrinho está vazio.</div>';
+  document.getElementById('cartTotal').textContent=fmt(cartTotal());
+}
+document.getElementById('cartItems').onclick=e=>{
+  const less=e.target.closest('[data-less]'),more=e.target.closest('[data-more]');
+  if(less){
+    const id=less.dataset.less;
+    if(id==='cardfree'){delete cart.cardfree;customGiftValue=0;updateCart();return}
+    cart[id]=Math.max(0,(cart[id]||0)-1);
+    if(!cart[id])delete cart[id];
+    updateCart();
+  }
+  if(more){
+    const id=more.dataset.more,g=gifts.find(x=>x.id===id);
+    if(!g)return;
+    if(g.type==='card'){cart[id]=(cart[id]||0)+1;updateCart();return}
+    if((cart[id]||0)<Math.max(0,g.quotas-(quotaProgress[g.id]||0)))cart[id]=(cart[id]||0)+1;
+    else toast('Não há mais cotas disponíveis deste presente.');
+    updateCart();
+  }
+};
 const modal=document.getElementById('cartModal');document.getElementById('cartBtn').onclick=()=>{updateCart();modal.classList.add('open')};document.getElementById('closeCart').onclick=()=>modal.classList.remove('open');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};
 function id(id,val){return id+String(val.length).padStart(2,'0')+val} function crc16(str){let crc=0xFFFF;for(let c=0;c<str.length;c++){crc^=str.charCodeAt(c)<<8;for(let i=0;i<8;i++)crc=(crc&0x8000)?((crc<<1)^0x1021):(crc<<1),crc&=0xFFFF}return crc.toString(16).toUpperCase().padStart(4,'0')} function clean(s,max){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9 .-]/g,'').toUpperCase().slice(0,max)}
 function pixPayload(amount){const mai=id('00','BR.GOV.BCB.PIX')+id('01',PIX_KEY)+id('02','PRESENTE CASAMENTO');const tx='JC'+Date.now().toString().slice(-12);let p=id('00','01')+id('26',mai)+id('52','0000')+id('53','986')+id('54',amount.toFixed(2))+id('58','BR')+id('59',clean(PIX_NAME,25))+id('60',clean(PIX_CITY,15))+id('62',id('05',tx))+'6304';return p+crc16(p)}
