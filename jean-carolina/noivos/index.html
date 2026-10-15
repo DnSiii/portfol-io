@@ -2,156 +2,18 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#59623f">
-<title>Área dos Noivos | Jean & Carolina</title>
-<meta name="robots" content="noindex,nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--olive:#68704c;--olive2:#4e5738;--cream:#f8f6f0;--paper:#fff;--ink:#30332b;--muted:#787b72;--line:#e5e1d7;--soft:#eef0e8;--red:#9b4b46;--gold:#a37d48;--shadow:0 18px 48px rgba(55,61,39,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Montserrat,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}
-.login-wrap{min-height:100vh;display:grid;place-items:center;padding:28px;background:radial-gradient(circle at top,#fff 0,#f8f6f0 55%,#eef0e8 100%)}
-.login-card{width:min(440px,100%);background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:var(--shadow);text-align:center}
-.logo{font:400 53px 'Great Vibes',cursive;color:var(--olive2);line-height:1}.kicker{font:600 10px Montserrat,Arial,sans-serif;text-transform:uppercase;letter-spacing:.28em;color:var(--olive);margin-bottom:12px}
-.login-card p{font:400 13px/1.7 Montserrat,Arial,sans-serif;color:var(--muted)}
-label{display:block;text-align:left;font-size:11px;font-weight:600;margin:18px 0 7px}.field{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:#fff;color:var(--ink);outline:none}.field:focus{border-color:#aeb69a;box-shadow:0 0 0 3px rgba(104,112,76,.08)}
-.btn{border:0;border-radius:12px;background:var(--olive);color:#fff;padding:13px 18px;font-weight:600;font-size:12px}.btn:hover{background:var(--olive2)}.btn.secondary{background:#fff;color:var(--olive2);border:1px solid var(--line)}
-.error{display:none;margin-top:14px;padding:11px;border-radius:10px;background:#f9eceb;color:#8d403b;font-size:11px}.error.show{display:block}
-.app{display:none}.app.show{display:block}
-header{position:sticky;top:0;z-index:20;background:rgba(248,246,240,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.topbar{max-width:1240px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font:400 31px 'Great Vibes',cursive;color:var(--olive2)}.actions{display:flex;gap:9px}
-main{max-width:1240px;margin:auto;padding:34px 22px 70px}.hero{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:26px}.hero h1{font:400 clamp(45px,6vw,74px) 'Great Vibes',cursive;color:var(--olive2);margin:3px 0}.hero p{color:var(--muted);font-size:12px;margin:0}
-.summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:24px 0 34px}.metric{background:#fff;border:1px solid var(--line);border-radius:18px;padding:19px;box-shadow:0 9px 26px rgba(55,61,39,.05)}.metric span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.metric strong{display:block;margin-top:8px;font:600 28px 'Cormorant Garamond',serif;color:var(--olive2)}
-.section{margin-top:34px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:14px}.section h2{margin:0;font:500 30px 'Cormorant Garamond',serif;color:var(--olive2)}.section small{color:var(--muted)}
-.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 9px 28px rgba(55,61,39,.05)}
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.filters .field{width:auto;min-width:190px}
-.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:760px}.table th,.table td{text-align:left;padding:12px 10px;border-bottom:1px solid #efede6;font-size:11px;vertical-align:top}.table th{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.table tr:last-child td{border-bottom:0}
-.badge{display:inline-flex;align-items:center;border-radius:999px;padding:6px 9px;font-size:9px;font-weight:600;white-space:nowrap}.yes{background:#e9f2e5;color:#46623b}.no{background:#f6e9e7;color:#934a44}.pending{background:#f4f0e7;color:#8a7048}.paid{background:#e8f0e5;color:#49633e}.generated{background:#eef0f2;color:#66717a}.confirmed{background:#e4efe8;color:#346247}
-.gift-progress{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.gift-card{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fcfbf8}.gift-card h3{margin:0 0 8px;font:500 20px 'Cormorant Garamond',serif}.progress-row{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;color:var(--muted)}.bar{height:7px;background:#ecebe5;border-radius:99px;overflow:hidden;margin-top:10px}.bar>i{display:block;height:100%;background:var(--olive);border-radius:99px}
-.message-list{display:grid;gap:10px}.message{border-left:3px solid #b0b795;background:#fcfbf8;border-radius:0 14px 14px 0;padding:13px 15px}.message strong{font:500 20px 'Cormorant Garamond',serif;color:var(--olive2)}.message time{float:right;font-size:9px;color:var(--muted)}.message p{font-size:11px;line-height:1.7;color:#5e6159;margin:6px 0 0;white-space:pre-wrap}
-.note{margin-top:12px;padding:11px 13px;background:#f6f3eb;border-radius:11px;font-size:10px;line-height:1.6;color:#756a57}.empty{text-align:center;padding:30px;color:var(--muted);font-size:11px}
-@media(max-width:1000px){.summary{grid-template-columns:repeat(3,1fr)}.gift-progress{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.summary{grid-template-columns:repeat(2,1fr)}.gift-progress{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}.topbar{padding:12px 15px}.brand{font-size:27px}main{padding:26px 14px 60px}.actions .btn{padding:10px 12px}.section-head{align-items:flex-start;flex-direction:column}}
-</style>
-</head>
-<body>
-<div class="login-wrap" id="loginWrap">
-  <div class="login-card">
-    <div class="kicker">Acesso privado</div>
-    <div class="logo">Jean & Carolina</div>
-    <p>Área reservada aos noivos para acompanhar confirmações, presentes e recados.</p>
-    <form id="loginForm">
-      <label for="accessKey">Código de acesso</label>
-      <input class="field" id="accessKey" type="password" autocomplete="current-password" placeholder="Digite o código dos noivos">
-      <button class="btn" id="loginBtn" type="submit" style="width:100%;margin-top:14px">Entrar</button>
-    </form>
-    <div class="error" id="loginError">Código de acesso inválido.</div>
-  </div>
-</div>
-
-<div class="app" id="app">
-<header><div class="topbar"><div class="brand">Jean & Carolina</div><div class="actions"><button class="btn secondary" id="refreshBtn">Atualizar</button><button class="btn" id="logoutBtn">Sair</button></div></div></header>
-<main>
-  <div class="hero"><div><div class="kicker">Painel privado</div><h1>Área dos Noivos</h1><p>05 · 12 · 2026 — acompanhamento central do casamento</p></div><small id="lastUpdate"></small></div>
-
-  <div class="summary">
-    <div class="metric"><span>Total de convidados</span><strong id="mTotal">—</strong></div>
-    <div class="metric"><span>Confirmados</span><strong id="mYes">—</strong></div>
-    <div class="metric"><span>Não irão</span><strong id="mNo">—</strong></div>
-    <div class="metric"><span>Pendentes</span><strong id="mPending">—</strong></div>
-    <div class="metric"><span>Presentes informados</span><strong id="mGiftTotal">—</strong></div>
-  </div>
-
-  <section class="section">
-    <div class="section-head"><div><div class="kicker">RSVP</div><h2>Confirmação de presença</h2></div><small id="rsvpCount"></small></div>
-    <div class="panel">
-      <div class="filters">
-        <input class="field" id="guestFilter" placeholder="Buscar convidado">
-        <select class="field" id="statusFilter"><option value="all">Todos</option><option value="Sim">Confirmados</option><option value="Não">Não irão</option><option value="pending">Pendentes</option></select>
-      </div>
-      <div class="table-wrap"><table class="table"><thead><tr><th>Convidado</th><th>Status</th><th>Última atualização</th></tr></thead><tbody id="rsvpBody"></tbody></table></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-head"><div><div class="kicker">Lista de casamento</div><h2>Andamento dos presentes</h2></div></div>
-    <div class="panel"><div class="gift-progress" id="giftProgress"></div><div class="note">As cotas abaixo consideram pagamentos que o próprio convidado marcou como realizados. Ainda não existe confirmação automática pelo banco/Pix.</div></div>
-  </section>
-
-  <section class="section">
-    <div class="section-head"><div><div class="kicker">Contribuições</div><h2>Presentes enviados</h2></div><small id="contribCount"></small></div>
-    <div class="panel"><div class="table-wrap"><table class="table"><thead><tr><th>Nome</th><th>Presente(s)</th><th>Total</th><th>Status</th><th>Mensagem</th><th>Data</th></tr></thead><tbody id="contribBody"></tbody></table></div></div>
-  </section>
-
-  <section class="section">
-    <div class="section-head"><div><div class="kicker">Recados públicos</div><h2>Mensagens dos convidados</h2></div><small id="messageCount"></small></div>
-    <div class="panel"><div class="message-list" id="messageList"></div></div>
-  </section>
-</main>
-</div>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="refresh" content="0;url=https://dnsiii.github.io/jean-carolina/noivos/">
+<link rel="canonical" href="https://dnsiii.github.io/jean-carolina/noivos/">
+<title>Jean & Carolina — Área dos noivos</title>
 <script>
-const API='https://bbjwlrjfsqtkinyqkgfs.supabase.co/functions/v1/wedding-admin-dashboard';
-const gifts=[
-  {id:'filter',name:'Filtro de Água',max:3},
-  {id:'steamer',name:'Vaporizador de Roupa Portátil',max:1},
-  {id:'pan',name:'Frigideira Antiaderente',max:1},
-  {id:'kettle',name:'Chaleira Elétrica',max:1},
-  {id:'rack',name:'Rack de TV',max:3},
-  {id:'sofa',name:'Ajuda para o Sofá',max:10}
-];
-let key=sessionStorage.getItem('jc_admin_key')||'', data=null;
-const $=id=>document.getElementById(id);
-const money=v=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(Number(v||0));
-const date=v=>v?new Intl.DateTimeFormat('pt-BR',{dateStyle:'short',timeStyle:'short'}).format(new Date(v)):'—';
-function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-async function load(){
-  const res=await fetch(API,{headers:{'x-wedding-admin-key':key}});
-  if(res.status===401)throw new Error('unauthorized');
-  if(!res.ok)throw new Error('load');
-  data=await res.json(); render();
-}
-function showApp(){ $('loginWrap').style.display='none';$('app').classList.add('show') }
-function showLogin(){ $('loginWrap').style.display='grid';$('app').classList.remove('show') }
-function render(){
-  showApp();
-  const guests=data.guests||[], contributions=data.contributions||[], messages=(data.messages||[]).filter(x=>x.is_visible!==false);
-  const yes=guests.filter(g=>g.attendance==='Sim').length,no=guests.filter(g=>g.attendance==='Não').length,pending=guests.length-yes-no;
-  const informed=contributions.filter(c=>['reported_paid','confirmed'].includes(c.status));
-  $('mTotal').textContent=guests.length;$('mYes').textContent=yes;$('mNo').textContent=no;$('mPending').textContent=pending;$('mGiftTotal').textContent=money(informed.reduce((s,c)=>s+Number(c.total||0),0));
-  $('lastUpdate').textContent='Atualizado em '+date(new Date());$('contribCount').textContent=contributions.length+' registro(s)';$('messageCount').textContent=messages.length+' recado(s)';
-  renderGuests();renderContributions();renderMessages();renderGiftProgress();
-}
-function renderGuests(){
-  const q=$('guestFilter').value.trim().toLowerCase(), status=$('statusFilter').value;
-  let rows=(data.guests||[]).filter(g=>!q||g.name.toLowerCase().includes(q)).filter(g=>status==='all'||(status==='pending'?!g.attendance:g.attendance===status));
-  $('rsvpCount').textContent=rows.length+' convidado(s)';
-  $('rsvpBody').innerHTML=rows.map(g=>`<tr><td><strong>${esc(g.name)}</strong></td><td>${g.attendance==='Sim'?'<span class="badge yes">Confirmado</span>':g.attendance==='Não'?'<span class="badge no">Não irá</span>':'<span class="badge pending">Pendente</span>'}</td><td>${date(g.updated_at)}</td></tr>`).join('')||'<tr><td colspan="3" class="empty">Nenhum convidado encontrado.</td></tr>';
-}
-function renderContributions(){
-  const rows=data.contributions||[];
-  $('contribBody').innerHTML=rows.map(c=>{
-    const items=(c.wedding_contribution_items||[]).map(i=>`${esc(i.gift_name)} × ${i.quantity}`).join('<br>');
-    const status=c.status==='confirmed'?'<span class="badge confirmed">Confirmado</span>':c.status==='reported_paid'?'<span class="badge paid">Pagamento informado</span>':c.status==='cancelled'?'<span class="badge no">Cancelado</span>':'<span class="badge generated">Pix gerado</span>';
-    return `<tr><td><strong>${esc(c.buyer_name)}</strong></td><td>${items||'—'}</td><td><strong>${money(c.total)}</strong></td><td>${status}</td><td>${esc(c.message||'—')}</td><td>${date(c.created_at)}</td></tr>`;
-  }).join('')||'<tr><td colspan="6" class="empty">Ainda não há presentes registrados.</td></tr>';
-}
-function renderGiftProgress(){
-  const paid=(data.contributions||[]).filter(c=>['reported_paid','confirmed'].includes(c.status));
-  const count={};
-  paid.forEach(c=>(c.wedding_contribution_items||[]).forEach(i=>count[i.gift_id]=(count[i.gift_id]||0)+Number(i.quantity||0)));
-  $('giftProgress').innerHTML=gifts.map(g=>{const n=Math.min(g.max,count[g.id]||0),pct=Math.min(100,(n/g.max)*100);return `<div class="gift-card"><h3>${esc(g.name)}</h3><div class="progress-row"><span>Cotas preenchidas</span><strong>${n}/${g.max}</strong></div><div class="bar"><i style="width:${pct}%"></i></div></div>`}).join('');
-}
-function renderMessages(){
-  const rows=(data.messages||[]).filter(x=>x.is_visible!==false);
-  $('messageList').innerHTML=rows.map(m=>`<article class="message"><time>${date(m.created_at)}</time><strong>${esc(m.name)}</strong><p>${esc(m.message)}</p></article>`).join('')||'<div class="empty">Ainda não há recados.</div>';
-}
-$('loginForm').onsubmit=async e=>{e.preventDefault();key=$('accessKey').value.trim();$('loginError').classList.remove('show');$('loginBtn').disabled=true;$('loginBtn').textContent='Entrando...';try{await load();sessionStorage.setItem('jc_admin_key',key)}catch(err){key='';sessionStorage.removeItem('jc_admin_key');$('loginError').classList.add('show')}finally{$('loginBtn').disabled=false;$('loginBtn').textContent='Entrar'}};
-$('logoutBtn').onclick=()=>{sessionStorage.removeItem('jc_admin_key');key='';data=null;$('accessKey').value='';showLogin()};
-$('refreshBtn').onclick=async()=>{try{$('refreshBtn').disabled=true;await load()}finally{$('refreshBtn').disabled=false}};
-$('guestFilter').oninput=renderGuests;$('statusFilter').onchange=renderGuests;
-if(key){load().catch(()=>{sessionStorage.removeItem('jc_admin_key');key='';showLogin()})}
+window.location.replace("https://dnsiii.github.io/jean-carolina/noivos/"+window.location.search+window.location.hash);
 </script>
+</head>
+<body style="font-family:system-ui,sans-serif;max-width:42rem;margin:4rem auto;padding:1rem">
+<p>A área dos noivos foi movida para outro endereço.</p>
+<p><a href="https://dnsiii.github.io/jean-carolina/noivos/">Abrir área dos noivos</a></p>
 </body>
 </html>
